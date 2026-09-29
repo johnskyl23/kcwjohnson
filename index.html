@@ -82,6 +82,10 @@
         <video muted loop playsinline autoplay preload="metadata"
                poster="img/poster/millimobile-leaf.jpg" aria-hidden="true">
           <source src="img/loop/millimobile-leaf.mp4" type="video/mp4">
+          <!-- Used if the browser refuses to autoplay (iOS Low Power Mode and
+               friends), where a stalled video element renders a play badge over the
+               first screen. scroll-motion.js swaps this in as a last resort. -->
+          <img loading="lazy" decoding="async" src="img/gif/millimobile-leaf.gif" alt="">
         </video>
       </div>
       <div class="hero__scrim" aria-hidden="true"></div>
@@ -118,128 +122,16 @@
       <p class="hero__scroll" aria-hidden="true">Scroll</p>
     </section>
 
-    <!-- =============================================== why smaller ====== -->
-    <section class="section wrap" id="approach">
-      <div class="grid grid--2" style="align-items:start">
-        <div>
-          <p class="t-eyebrow" data-reveal>Why make robots smaller?</p>
-          <h2 class="t-h2" data-reveal style="--reveal-delay:80ms">
-            Miniaturization to the near-gram size enables qualitatively different
-            ways of deploying robotic systems.
-          </h2>
-        </div>
-        <div>
-          <p class="t-body" data-reveal style="--reveal-delay:160ms">
-            Near-gram robots can enter narrow gaps, cavities, dense vegetation, machinery,
-            damaged structures, and other environments that are difficult or impossible for
-            conventional robots or people to access. That creates opportunities in industrial
-            inspection, environmental monitoring, disaster response, precision agriculture,
-            and distributed sensing.
+    <!-- =============================================== why smaller ====== -->    <!-- ============================================ statement (word-lit) == -->
+    <section class="pin pin--statement" id="approach" data-scrub="pin">
+      <div class="pin__stage">
+        <div class="wrap">
+          <p class="t-eyebrow">The problem</p>
+          <p class="statement" data-words>
+            Near-gram robots reach places larger machines cannot. But every milligram of
+            sensor and battery competes with the power to move. So the real question is not
+            how to shrink a robot — it is where its intelligence should live.
           </p>
-          <p class="t-body" data-reveal style="--reveal-delay:240ms">
-            Rather than relying on a few highly capable and expensive robots, sufficiently
-            inexpensive microrobots could be deployed as large fleets that gather measurements
-            at many locations simultaneously — where robustness emerges from the number and
-            distribution of devices rather than from adding redundant hardware to each one.
-          </p>
-          <p class="t-body" data-reveal style="--reveal-delay:320ms">
-            But the very scaling that enables this removes many of the resources traditionally
-            used to create autonomy. At the near-gram scale, each additional milligram, cubic
-            millimeter, and milliwatt represents a significant fraction of the total system budget.
-          </p>
-        </div>
-      </div>
-
-      <div class="grid grid--4 mt-5 stats" data-reveal-group="110">
-        <div class="stat" data-reveal>
-          <div class="stat__num"><span data-count="414">414</span><span class="u">mg</span></div>
-          <p class="stat__label">Solar-powered origami microflier that changes shape in mid-air</p>
-        </div>
-        <div class="stat" data-reveal>
-          <div class="stat__num"><span data-count="50">50</span><span class="u">µW</span></div>
-          <p class="stat__label">Minimum harvested power for battery-free terrestrial locomotion</p>
-        </div>
-        <div class="stat" data-reveal>
-          <div class="stat__num"><span data-count="4.2" data-decimals="1">4.2</span><span class="u">×</span></div>
-          <p class="stat__label">Maximum lift-to-weight ratio of the 1&nbsp;g Coin-Copter</p>
-        </div>
-        <div class="stat" data-reveal>
-          <div class="stat__num"><span data-count="98">98</span><span class="u">m</span></div>
-          <p class="stat__label">Outdoor dispersal distance demonstrated from a drone release</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================= pinned scene: the gap === -->
-    <section class="scene scene--3" data-scene aria-label="Three allocations of intelligence">
-      <div class="scene__stage">
-        <div class="wrap" style="width:100%">
-          <div class="grid grid--2" style="align-items:center">
-            <div>
-              <p class="t-eyebrow">The near-gram autonomy gap</p>
-              <h2 class="t-h2" style="margin-bottom:1.25rem">
-                Full autonomy has to fit inside the same gram.
-              </h2>
-              <p class="t-body">
-                Mobility actuation, onboard sensing, onboard computing, a wireless link, and
-                onboard power. Many impressive microrobots achieve one of these by moving another
-                <em>outside</em> the robot — a tether, a motion-capture rig, an offboard controller,
-                a magnetic field generator.
-              </p>
-              <p class="t-body">
-                So the question stops being <em>how do we miniaturize each component</em>, and
-                becomes: <strong>where should each function required for autonomous behavior
-                actually live?</strong>
-              </p>
-
-              <ol class="list-plain mt-3" style="display:grid;gap:.55rem">
-                <li data-step class="t-meta">01 — Encode the behavior in the structure</li>
-                <li data-step class="t-meta">02 — Schedule the behavior around available energy</li>
-                <li data-step class="t-meta">03 — Let the physics do the stabilizing</li>
-              </ol>
-            </div>
-
-            <div class="frames" style="min-height:min(58svh,480px)">
-              <figure class="frame">
-                <div style="width:100%">
-                  <div class="media media--16x9">
-                    <video data-lazy-video muted loop playsinline preload="none"
-                           poster="img/poster/microflier-windtunnel.jpg">
-                      <source data-src="img/loop/microflier-windtunnel.mp4" type="video/mp4">
-                      <img loading="lazy" decoding="async" src="img/gif/microflier-windtunnel.gif" alt="Origami microflier falling in a wind tunnel in its stable and tumbling states">
-                    </video>
-                    <p class="media__cap">Origami Microflier — bistable morphology</p>
-                  </div>
-                </div>
-              </figure>
-
-              <figure class="frame">
-                <div style="width:100%">
-                  <div class="media media--16x9">
-                    <video data-lazy-video muted loop playsinline preload="none"
-                           poster="img/poster/millimobile-leaf.jpg">
-                      <source data-src="img/loop/millimobile-leaf.mp4" type="video/mp4">
-                      <img loading="lazy" decoding="async" src="img/gif/millimobile-leaf.gif" alt="MilliMobile driving across a leaf">
-                    </video>
-                    <p class="media__cap">MilliMobile — intermittent, energy-aware motion</p>
-                  </div>
-                </div>
-              </figure>
-
-              <figure class="frame">
-                <div style="width:100%">
-                  <div class="media media--16x9">
-                    <video data-lazy-video muted loop playsinline preload="none"
-                           poster="img/poster/flybar-damping.jpg">
-                      <source data-src="img/loop/flybar-damping.mp4" type="video/mp4">
-                      <img loading="lazy" decoding="async" src="img/gif/flybar-damping.gif" alt="Side-by-side high-speed comparison of a rotor with and without the flybar mechanism">
-                    </video>
-                    <p class="media__cap">Coin-Copter — passive flybar-rotor stabilization</p>
-                  </div>
-                </div>
-              </figure>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -247,437 +139,193 @@
     <!-- ================================================= CMI framework === -->
     <section class="section section--alt">
       <div class="wrap">
-        <div class="section-head">
-          <div class="section-head__text">
-            <p class="t-eyebrow" data-reveal>The framework</p>
-            <h2 class="t-h1" data-reveal style="--reveal-delay:80ms">Cyber-Mechanical<br>Intelligence</h2>
-          </div>
-          <p class="t-lede max-45" data-reveal style="--reveal-delay:160ms">
-            A co-design paradigm that treats the location of intelligence within the robot
-            as a design variable.
-          </p>
-        </div>
-
         <div class="grid grid--2" style="align-items:center">
           <div data-reveal="left">
-            <div class="plate" data-scroll-scale="0.94 1.03">
+            <div class="plate" data-scroll-scale="0.95 1.02">
               <img src="img/web/cmi-overview.jpg" width="1800" height="1500" loading="lazy" decoding="async"
                    alt="Diagram of Cyber-Mechanical Intelligence: on-device intelligence, resource-aware embedded systems, sensing and actuation, and dynamic mechanisms, all interacting with natural environments.">
-              <p class="plate__cap">CMI as a system-level design framework. Four interacting pillars provide complementary means of realizing autonomous functions; the resulting allocation depends on the task, environment, and available system resources.</p>
             </div>
           </div>
-
           <div data-reveal="right">
+            <p class="t-eyebrow">The framework</p>
+            <h2 class="t-h1" style="margin-bottom:1.25rem">Cyber-Mechanical<br>Intelligence</h2>
             <p class="t-body">
-              In this work, “intelligence” is not synonymous with artificial intelligence or
-              computation. Intelligence refers more broadly to a system’s capacity to produce
-              appropriate autonomous behavior in response to its task and environment. That
-              behavior may arise from computation — but it may also be produced through
-              mechanical dynamics, morphology, passive stability, stored mechanical state,
-              specialized electronics, or combinations of these domains.
-            </p>
-            <p class="t-body">
-              Functions are not assigned to mechanisms, electronics, or computation by
-              convention, but according to where they can be implemented with the lowest
-              system-level resource cost while preserving the behavior the task requires.
+              Intelligence here is not a synonym for computation. It is a system’s capacity to
+              produce the right behavior for its task — and that can come from morphology,
+              passive dynamics, or stored mechanical state just as readily as from a processor.
             </p>
             <p class="t-body">
-              The goal is not to replace computation with physical mechanisms wherever possible.
-              It is to jointly design the physical, electronic, and computational system so that
-              each domain performs the functions for which it is best suited.
+              CMI treats the <strong>location</strong> of intelligence as a design variable:
+              put each function where it costs the least mass, power and computation.
             </p>
-            <p class="t-meta mt-3">
-              — Cyber-Mechanical Intelligence: Creating Near-Gram Robots That Can Move Autonomously,
-              Ph.D. dissertation, University of Washington, 2026
-            </p>
+            <p class="t-meta mt-3">Ph.D. dissertation, University of Washington, 2026</p>
           </div>
         </div>
 
-        <!-- four pillars -->
-        <div class="grid grid--4 mt-5" data-reveal-group="120">
+        <div class="grid grid--4 mt-5" data-reveal-group="110">
           <article class="pillar tint-air" data-reveal>
-            <p class="pillar__idx">PILLAR 01</p>
+            <p class="pillar__idx">01</p>
             <h3 class="t-h4 pillar__title">Dynamic mechanisms</h3>
-            <p class="pillar__text">
-              Morphology, passive dynamics, compliance, material properties, and mechanical
-              state treated as resources that can perform functions conventionally assigned to
-              sensing, computation, control, or actuation.
-            </p>
+            <p class="pillar__text">Morphology and passive dynamics doing work that sensing and control would otherwise do.</p>
           </article>
-
           <article class="pillar tint-ground" data-reveal>
-            <p class="pillar__idx">PILLAR 02</p>
+            <p class="pillar__idx">02</p>
             <h3 class="t-h4 pillar__title">Efficient sensing &amp; actuation</h3>
-            <p class="pillar__text">
-              The minimum sensing and actuation necessary to accomplish the task reliably —
-              task-specific sensors, event-driven sampling, mechanically amplified actuation,
-              low-degree-of-freedom control.
-            </p>
+            <p class="pillar__text">The least sensing and actuator authority that still closes the loop reliably.</p>
           </article>
-
           <article class="pillar tint-flight" data-reveal>
-            <p class="pillar__idx">PILLAR 03</p>
+            <p class="pillar__idx">03</p>
             <h3 class="t-h4 pillar__title">Resource-aware embedded systems</h3>
-            <p class="pillar__text">
-              Energy harvesting, power management, intermittent computing, duty cycling, and
-              energy-aware control — so energy availability becomes part of the operating
-              strategy rather than a constraint imposed on a fixed architecture.
-            </p>
+            <p class="pillar__text">Harvesting, buffering and duty cycling, so energy availability shapes behavior.</p>
           </article>
-
           <article class="pillar tint-vision" data-reveal>
-            <p class="pillar__idx">PILLAR 04</p>
+            <p class="pillar__idx">04</p>
             <h3 class="t-h4 pillar__title">On-device intelligence</h3>
-            <p class="pillar__text">
-              State estimation, model-based control, planning, learned perception, and
-              resource-constrained neural inference — used where adaptability and information
-              processing provide the greatest value per unit of system cost.
-            </p>
+            <p class="pillar__text">Computation spent only where adaptability changes what the robot does.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ==================================================== research ==== -->
-    <section class="section" id="research" style="position:relative">
-      <div class="rail" aria-hidden="true"><div class="rail__fill"></div></div>
-
+    <!-- ============================================= research timeline === -->
+    <section class="section" id="research">
       <div class="wrap">
         <div class="section-head">
           <div class="section-head__text">
             <p class="t-eyebrow" data-reveal>The systems</p>
-            <h2 class="t-h1" data-reveal style="--reveal-delay:80ms">Four robots,<br>four allocations.</h2>
+            <h2 class="t-h1" data-reveal style="--reveal-delay:80ms">Four robots,<br>four answers.</h2>
           </div>
           <p class="t-lede max-45" data-reveal style="--reveal-delay:160ms">
-            Each platform addresses a different resource bottleneck — and arrives at a
-            different answer to the same question.
+            Each one moves a different function out of software and into the machine.
           </p>
         </div>
-      </div>
 
-      <!-- ---------------------------------------- 01 Origami Microflier -->
-      <article class="chapter tint-air">
-        <div class="wrap">
-          <div class="chapter__grid">
-            <div class="chapter__text">
-              <p class="chapter__num" data-reveal>01</p>
-              <p class="chapter__kicker" data-reveal style="--reveal-delay:60ms">Intelligent morphology</p>
-              <h3 class="t-h2 chapter__title" data-reveal style="--reveal-delay:100ms">Origami Microflier</h3>
-              <p class="chapter__claim" data-reveal style="--reveal-delay:140ms">
-                Shape can change lateral displacement. So let the shape hold the decision.
-              </p>
-
-              <p class="chapter__body" data-reveal style="--reveal-delay:180ms">
-                Wind-dispersed sensor nodes can exploit environmental airflow instead of
-                carrying propulsion — but conventional passive microfliers have little control
-                over where they land. The Origami Microflier uses a reconfigurable mechanical
-                structure to change how the surrounding airflow acts on the device.
-              </p>
-              <p class="chapter__body" data-reveal style="--reveal-delay:220ms">
-                The 414&nbsp;mg system is built around a bistable leaf-out origami structure with
-                two mechanically stable configurations. Unfolded, it tumbles as it falls and is
-                more strongly influenced by lateral wind. After transitioning to its folded state,
-                the altered geometry produces a more symmetric aerodynamic response and a stable
-                downward descent. Because the origami is bistable, each configuration is
-                maintained mechanically — no continuous power or control is required to preserve it.
-              </p>
-              <p class="chapter__body" data-reveal style="--reveal-delay:260ms">
-                Harvested solar energy is accumulated and discharged in a single short actuation
-                event, triggered by programmed timing, an onboard pressure-based altitude estimate,
-                or a wireless command. A brief discharge of electrical energy therefore produces a
-                persistent change in behavior.
-              </p>
-
-              <div class="chapter__facts" data-reveal style="--reveal-delay:300ms">
-                <div>
-                  <div class="fact__num"><span data-count="414">414</span><span class="u">mg</span></div>
-                  <p class="fact__label">total system mass</p>
-                </div>
-                <div>
-                  <div class="fact__num"><span data-count="2">2</span></div>
-                  <p class="fact__label">stable mechanical configurations</p>
-                </div>
-                <div>
-                  <div class="fact__num"><span data-count="98">98</span><span class="u">m</span></div>
-                  <p class="fact__label">outdoor dispersal distance</p>
-                </div>
-              </div>
-
-              <div class="chapter__links" data-reveal style="--reveal-delay:340ms">
-                <a class="chip" href="https://doi.org/10.1126/scirobotics.adg4276" target="_blank" rel="noopener">Science Robotics</a>
-                <a class="chip" href="files/Solar-powered shape-changingorigamimicrofliers.pdf" target="_blank" rel="noopener">PDF</a>
-                <a class="chip" href="https://origamifliers.cs.washington.edu/" target="_blank" rel="noopener">Project site</a>
-                <a class="chip" href="https://youtu.be/-pE4-DXTsXk" target="_blank" rel="noopener">Video</a>
-              </div>
-            </div>
-
-            <div class="chapter__media">
-              <div class="media media--main" data-reveal="zoom">
-                <video data-lazy-video muted loop playsinline preload="none"
-                       poster="img/poster/microflier-windtunnel.jpg">
-                  <source data-src="img/loop/microflier-windtunnel.mp4" type="video/mp4">
-                  <img loading="lazy" decoding="async" src="img/gif/microflier-windtunnel.gif" alt="Wind-tunnel comparison of the microflier's stable state and tumbling state at 1.83 m/s">
-                </video>
-                <p class="media__cap">Wind tunnel · stable state vs. tumbling state · 1.83 m/s</p>
-              </div>
-
-              <div class="media-pair">
-                <div class="media media--4x3" data-reveal style="--reveal-delay:120ms">
-                  <video data-lazy-video muted loop playsinline preload="none"
-                         poster="img/poster/microflier-drone.jpg">
-                    <source data-src="img/loop/microflier-drone.mp4" type="video/mp4">
-                    <img loading="lazy" decoding="async" src="img/gif/microflier-drone.gif" alt="A drone releasing an origami microflier in mid-air during an outdoor dispersal test">
-                  </video>
-                  <p class="media__cap">Released from a drone</p>
-                </div>
-                <div class="media media--4x3" data-reveal style="--reveal-delay:200ms">
-                  <video data-lazy-video muted loop playsinline preload="none"
-                         poster="img/poster/microflier-transition.jpg">
-                    <source data-src="img/loop/microflier-transition.mp4" type="video/mp4">
-                    <img loading="lazy" decoding="async" src="img/gif/microflier-transition.gif" alt="Close-up of the origami microflier electronically actuating from its tumbling state into its stable state">
-                  </video>
-                  <p class="media__cap">Tumbling → stable · 0.10× speed</p>
-                </div>
-              </div>
-            </div>
+        <div class="timeline">
+          <!-- sticky visual column -->
+          <div class="timeline__visuals">
+            <figure class="timeline__visual is-active" data-visual="0">
+              <video data-lazy-video muted loop playsinline preload="none" poster="img/poster/microflier-windtunnel.jpg">
+                <source data-src="img/loop/microflier-windtunnel.mp4" type="video/mp4">
+                <img loading="lazy" decoding="async" src="img/gif/microflier-windtunnel.gif" alt="Origami microflier falling in a wind tunnel in its stable and tumbling states">
+              </video>
+            </figure>
+            <figure class="timeline__visual" data-visual="1">
+              <video data-lazy-video muted loop playsinline preload="none" poster="img/poster/millimobile-leaf.jpg">
+                <source data-src="img/loop/millimobile-leaf.mp4" type="video/mp4">
+                <img loading="lazy" decoding="async" src="img/gif/millimobile-leaf.gif" alt="MilliMobile driving across a leaf under sunlight">
+              </video>
+            </figure>
+            <figure class="timeline__visual" data-visual="2">
+              <video data-lazy-video muted loop playsinline preload="none" poster="img/poster/millimobile-vision.jpg">
+                <source data-src="img/loop/millimobile-vision.mp4" type="video/mp4">
+                <img loading="lazy" decoding="async" src="img/gif/millimobile-vision.gif" alt="MilliMobile Vision tracking a live insect, arena view beside the robot's onboard camera">
+              </video>
+            </figure>
+            <figure class="timeline__visual" data-visual="3">
+              <video data-lazy-video muted loop playsinline preload="none" poster="img/poster/coincopter-ascent.jpg">
+                <source data-src="img/loop/coincopter-ascent.mp4" type="video/mp4">
+                <img loading="lazy" decoding="async" src="img/gif/coincopter-ascent.gif" alt="Side-by-side tether-constrained ascent with and without the flybar rotor">
+              </video>
+            </figure>
           </div>
-        </div>
-      </article>
 
-      <!-- ------------------------------------------------- 02 MilliMobile -->
-      <article class="chapter chapter--flip tint-ground">
-        <div class="wrap">
-          <div class="chapter__grid">
-            <div class="chapter__text">
-              <p class="chapter__num" data-reveal>02</p>
-              <p class="chapter__kicker" data-reveal style="--reveal-delay:60ms">Intelligent energy allocation</p>
-              <h3 class="t-h2 chapter__title" data-reveal style="--reveal-delay:100ms">MilliMobile</h3>
-              <p class="chapter__claim" data-reveal style="--reveal-delay:140ms">
-                Stop asking the robot to move continuously. Ask it to move when it can afford to.
+          <!-- steps -->
+          <div class="timeline__steps">
+            <article class="step is-active tint-air" data-step="0">
+              <p class="step__meta">Science Robotics · 2023</p>
+              <h3 class="step__title">Origami Microflier</h3>
+              <p class="step__text">
+                A bistable origami body holds either of two aerodynamic states with no power at
+                all. One solar-powered pulse flips it mid-air — after that the structure, not a
+                controller, keeps the new descent behavior.
               </p>
-
-              <p class="chapter__body" data-reveal style="--reveal-delay:180ms">
-                Ambient solar and RF sources can provide enough energy over time to support
-                near-gram robotic operation, but their instantaneous power is far below what is
-                needed to continuously drive even small motors. MilliMobile separates the rate at
-                which energy is harvested from the rate at which it is consumed: ambient energy is
-                accumulated in lightweight capacitors and periodically discharged to produce
-                discrete episodes of motion.
+              <p class="step__facts">
+                <b>414 mg</b><b>2 stable states</b><b>98 m dispersal</b>
               </p>
-              <p class="chapter__body" data-reveal style="--reveal-delay:220ms">
-                The result is a centimeter-square, battery-free robot that moves on as little as
-                50&nbsp;µW of harvested power, including in practical indoor lighting. It uses four
-                onboard photodiodes to estimate the direction of incident light and steer toward
-                brighter regions — simultaneously performing its task and seeking environments
-                that supply more energy.
+              <p class="chapter__links">
+                <a class="chip" href="https://doi.org/10.1126/scirobotics.adg4276" target="_blank" rel="noopener">DOI</a>
+                <a class="chip" href="https://origamifliers.cs.washington.edu/" target="_blank" rel="noopener">Project</a>
               </p>
-              <p class="chapter__body" data-reveal style="--reveal-delay:260ms">
-                Temperature and humidity sensing and long-range Bluetooth complete the platform:
-                these robots can communicate roughly fifty thousand times their own body length.
+            </article>
+
+            <article class="step tint-ground" data-step="1">
+              <p class="step__meta">ACM MobiCom · 2023</p>
+              <h3 class="step__title">MilliMobile</h3>
+              <p class="step__text">
+                Harvested light is far too weak to drive a motor continuously. So MilliMobile
+                accumulates it and spends it in bursts: motion becomes intermittent, and the
+                robot stays energetically self-sufficient.
               </p>
-
-              <div class="chapter__facts" data-reveal style="--reveal-delay:300ms">
-                <div>
-                  <div class="fact__num"><span data-count="50">50</span><span class="u">µW</span></div>
-                  <p class="fact__label">minimum operating power</p>
-                </div>
-                <div>
-                  <div class="fact__num"><span data-count="5.5" data-decimals="1">5.5</span><span class="u">mm/s</span></div>
-                  <p class="fact__label">speed with no battery onboard</p>
-                </div>
-                <div>
-                  <div class="fact__num"><span data-count="200">200</span><span class="u">m+</span></div>
-                  <p class="fact__label">wireless communication range</p>
-                </div>
-              </div>
-
-              <div class="chapter__links" data-reveal style="--reveal-delay:340ms">
-                <a class="chip" href="https://doi.org/10.1145/3570361.3613304" target="_blank" rel="noopener">ACM MobiCom</a>
-                <a class="chip" href="files/Millimobile_An_Autonomous_Battery-free_Wireless_Microrobot.pdf" target="_blank" rel="noopener">PDF</a>
-                <a class="chip" href="https://millimobile.cs.washington.edu/" target="_blank" rel="noopener">Project site</a>
-                <a class="chip" href="https://patents.google.com/patent/WO2025058992A1/en" target="_blank" rel="noopener">Patent</a>
-                <a class="chip" href="https://youtu.be/WADixOh6Xs8" target="_blank" rel="noopener">Video</a>
-              </div>
-            </div>
-
-            <div class="chapter__media">
-              <div class="media media--main" data-reveal="zoom">
-                <video data-lazy-video muted loop playsinline preload="none"
-                       poster="img/poster/millimobile-leaf.jpg">
-                  <source data-src="img/loop/millimobile-leaf.mp4" type="video/mp4">
-                  <img loading="lazy" decoding="async" src="img/gif/millimobile-leaf.gif" alt="MilliMobile driving across a leaf under sunlight">
-                </video>
-                <p class="media__cap">Battery-free locomotion on harvested sunlight</p>
-              </div>
-
-              <div class="plate" data-reveal style="--reveal-delay:140ms">
-                <img src="img/web/millimobile-concept.jpg" width="1800" height="500" loading="lazy" decoding="async"
-                     alt="MilliMobile next to a U.S. penny; exploded view showing solar cells, folded circuit, chassis, motors, ball bearings and wheels; and the folded PCB with its system circuit diagram.">
-                <p class="plate__cap">(A) MilliMobile beside a U.S. penny. (B) Exploded view: solar cells, folded circuit, chassis, motors, ball bearings, wheels. (C) Folded printed circuit board and system circuit diagram.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- ------------------------------------------ 03 MilliMobile Vision -->
-      <article class="chapter tint-vision">
-        <div class="wrap">
-          <div class="chapter__grid">
-            <div class="chapter__text">
-              <p class="chapter__num" data-reveal>03</p>
-              <p class="chapter__kicker" data-reveal style="--reveal-delay:60ms">Intelligence as a scheduled resource</p>
-              <h3 class="t-h2 chapter__title" data-reveal style="--reveal-delay:100ms">MilliMobile Vision</h3>
-              <p class="chapter__claim" data-reveal style="--reveal-delay:140ms">
-                Run the cheap thing often. Run the expensive thing only when the answer changes what you do.
+              <p class="step__facts">
+                <b>50 µW</b><b>5.5 mm/s, no battery</b><b>200 m+ link</b>
               </p>
-
-              <p class="chapter__body" data-reveal style="--reveal-delay:180ms">
-                MilliMobile Vision pushes the same principle into perception. Camera acquisition,
-                image processing, learned inference, and communication all compete for the same
-                limited computing resources, so the system treats perception and computation as
-                schedulable activities — just as the original MilliMobile treats locomotion.
+              <p class="chapter__links">
+                <a class="chip" href="https://doi.org/10.1145/3570361.3613304" target="_blank" rel="noopener">DOI</a>
+                <a class="chip" href="https://millimobile.cs.washington.edu/" target="_blank" rel="noopener">Project</a>
               </p>
-              <p class="chapter__body" data-reveal style="--reveal-delay:220ms">
-                The architecture co-designs sensing, inference, and actuation around two operating
-                modes: a low-rate discovery mode that searches for objects of interest, and a
-                higher-rate tracking mode that prioritizes closed-loop following once a target is
-                detected. Frequent, inexpensive geometric localization drives steering; a more
-                expensive learned classifier is invoked only when semantic identity becomes
-                relevant to the task.
+            </article>
+
+            <article class="step tint-vision" data-step="2">
+              <p class="step__meta">IEEE RA-L · in preparation</p>
+              <h3 class="step__title">MilliMobile Vision</h3>
+              <p class="step__text">
+                Cheap geometric localization steers the robot constantly. The expensive learned
+                classifier runs only when knowing <em>what</em> the target is would actually
+                change what the robot does.
               </p>
-              <p class="chapter__body" data-reveal style="--reveal-delay:260ms">
-                The camera is reused for both target tracking and coarse obstacle detection rather
-                than adding a dedicated range sensor — onboard perception that lets the robot make
-                increasingly sophisticated local decisions without depending on external computation.
+              <p class="step__facts">
+                <b>Onboard camera</b><b>Discovery + tracking modes</b>
               </p>
+            </article>
 
-              <div class="chapter__links" data-reveal style="--reveal-delay:300ms">
-                <span class="chip chip--review">RA-L · in preparation</span>
-                <a class="chip" href="files/Battery-free On-Board Computer Vision for Insect-scale Microrobots FINAL.pdf" target="_blank" rel="noopener">ICRA late-breaking PDF</a>
-              </div>
-            </div>
-
-            <div class="chapter__media">
-              <div class="media media--main" data-reveal="zoom">
-                <video data-lazy-video muted loop playsinline preload="none"
-                       poster="img/poster/millimobile-vision.jpg">
-                  <source data-src="img/loop/millimobile-vision.mp4" type="video/mp4">
-                  <img loading="lazy" decoding="async" src="img/gif/millimobile-vision.gif" alt="MilliMobile Vision tracking a live insect: arena view alongside the robot's onboard camera view">
-                </video>
-                <p class="media__cap">Closed-loop tracking of a live insect · arena view + onboard camera</p>
-              </div>
-
-              <div class="plate" data-reveal style="--reveal-delay:140ms">
-                <img src="img/web/insect-tracking.jpg" width="1800" height="1440" loading="lazy" decoding="async"
-                     alt="Top view of the arena showing the robot's path in red and the beetle's path in blue, with three onboard camera frames: no target visible, target detected, and a closer view.">
-                <p class="plate__cap">Arena top view with the robot and insect trajectories, alongside the MilliMobile onboard view at three moments: no target visible, target detected, closer view.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- ------------------------------------------------- 04 Coin-Copter -->
-      <article class="chapter chapter--flip tint-flight">
-        <div class="wrap">
-          <div class="chapter__grid">
-            <div class="chapter__text">
-              <p class="chapter__num" data-reveal>04</p>
-              <p class="chapter__kicker" data-reveal style="--reveal-delay:60ms">Intelligent passive flight dynamics</p>
-              <h3 class="t-h2 chapter__title" data-reveal style="--reveal-delay:100ms">Coin-Copter</h3>
-              <p class="chapter__claim" data-reveal style="--reveal-delay:140ms">
-                A flybar can do the job of an attitude controller — and it never runs out of battery.
+            <article class="step tint-flight" data-step="3">
+              <p class="step__meta">Science Advances · in revision</p>
+              <h3 class="step__title">Coin-Copter</h3>
+              <p class="step__text">
+                A microfabricated flybar-rotor damps roll and pitch mechanically, leaving active
+                control for yaw alone. Without it the vehicle cannot hold upright flight at all.
               </p>
-
-              <p class="chapter__body" data-reveal style="--reveal-delay:180ms">
-                Multi-rotor drones maintain attitude by continuously sensing orientation and
-                modulating multiple actuators to regulate roll, pitch, yaw, and position. At the
-                near-gram scale, each additional actuator, sensor, drive circuit, and feedback
-                loop consumes a significant fraction of the available mass, power, and computation.
+              <p class="step__facts">
+                <b>1.0 g</b><b>4.2× lift-to-weight</b><b>±11° RMS yaw</b>
               </p>
-              <p class="chapter__body" data-reveal style="--reveal-delay:220ms">
-                Coin-Copter instead uses a single high-lift main rotor together with a passive
-                flybar-rotor mechanism — microfabricated from a flat composite laminate, using
-                flexure joints to reproduce the motions of the articulated flybars used in larger
-                helicopters. When the vehicle rotates in roll or pitch, the coupled dynamics of
-                the flybar and teetering rotor tilt the rotor disk relative to the body; the
-                resulting change in thrust direction produces a restoring torque. Stabilization
-                emerges from the rotor mechanics rather than from attitude estimation and active
-                correction.
-              </p>
-              <p class="chapter__body" data-reveal style="--reveal-delay:260ms">
-                A small tail rotor retains active control of the remaining yaw axis. A Coin-Copter
-                without the flybar was unable to maintain sustained upright flight, whereas the
-                flybar-equipped system held a stabilized attitude, recovered after a collision, and
-                continued ascending to the limit of the test arena.
-              </p>
-
-              <div class="chapter__facts" data-reveal style="--reveal-delay:300ms">
-                <div>
-                  <div class="fact__num"><span data-count="1.0" data-decimals="1">1.0</span><span class="u">g</span></div>
-                  <p class="fact__label">vehicle mass, 3.3 cm rotor</p>
-                </div>
-                <div>
-                  <div class="fact__num"><span data-count="341">341</span><span class="u">mW</span></div>
-                  <p class="fact__label">total motor power at lift-off</p>
-                </div>
-                <div>
-                  <div class="fact__num"><span data-count="4.2" data-decimals="1">4.2</span><span class="u">×</span></div>
-                  <p class="fact__label">maximum lift-to-weight ratio</p>
-                </div>
-                <div>
-                  <div class="fact__num">±<span data-count="11">11</span><span class="u">°</span></div>
-                  <p class="fact__label">RMS closed-loop yaw error over 30 s</p>
-                </div>
-              </div>
-
-              <div class="chapter__links" data-reveal style="--reveal-delay:340ms">
-                <span class="chip chip--review">Science Advances · in revision</span>
+              <p class="chapter__links">
                 <a class="chip" href="https://doi.org/10.1109/IROS55552.2023.10342256" target="_blank" rel="noopener">IROS 2023</a>
-                <a class="chip" href="files/Toward Sub-gram Helicopters- Designing a Miniaturized Flybar for Passive Stability.pdf" target="_blank" rel="noopener">PDF</a>
                 <a class="chip" href="https://patents.google.com/patent/WO2024137785A1/en" target="_blank" rel="noopener">Patent</a>
-              </div>
-            </div>
-
-            <div class="chapter__media">
-              <div class="media media--main" data-reveal="zoom">
-                <video data-lazy-video muted loop playsinline preload="none"
-                       poster="img/poster/coincopter-ascent.jpg">
-                  <source data-src="img/loop/coincopter-ascent.mp4" type="video/mp4">
-                  <img loading="lazy" decoding="async" src="img/gif/coincopter-ascent.gif" alt="Side-by-side tether-constrained ascending flight with and without the flybar rotor">
-                </video>
-                <p class="media__cap">Tether-constrained ascent · no flybar vs. flybar-rotor · 0.125× speed</p>
-              </div>
-
-              <div class="media-pair">
-                <div class="media media--4x3" data-reveal style="--reveal-delay:120ms">
-                  <video data-lazy-video muted loop playsinline preload="none"
-                         poster="img/poster/coincopter-impact.jpg">
-                    <source data-src="img/loop/coincopter-impact.mp4" type="video/mp4">
-                    <img loading="lazy" decoding="async" src="img/gif/coincopter-impact.gif" alt="Coin-Copter stabilizing after an impact">
-                  </video>
-                  <p class="media__cap">Stabilization after impact</p>
-                </div>
-                <div class="media media--4x3" data-reveal style="--reveal-delay:200ms">
-                  <video data-lazy-video muted loop playsinline preload="none"
-                         poster="img/poster/flybar-damping.jpg">
-                    <source data-src="img/loop/flybar-damping.mp4" type="video/mp4">
-                    <img loading="lazy" decoding="async" src="img/gif/flybar-damping.gif" alt="High-speed 1D damping comparison of the rotor with and without a flybar">
-                  </video>
-                  <p class="media__cap">1D damping · 18× better damping ratio</p>
-                </div>
-              </div>
-
-              <div class="plate" data-reveal style="--reveal-delay:240ms">
-                <img src="img/web/coincopter-concept.jpg" width="1800" height="480" loading="lazy" decoding="async"
-                     alt="Coin-Copter above a U.S. 25-cent coin with motors on and off; labelled test platform showing the flybar mechanism, folded propeller, main motor, tail rotor and boom, counterweight, and carbon-fiber roll cage; and a composite image of passive stabilization during ascent.">
-                <p class="plate__cap">(A) Coin-Copter above a U.S. 25¢ coin, motors on and off. (B) Labelled platform: flybar mechanism, folded propeller, main motor, tail rotor and boom, counterweight, roll cage. (C) Released from a tilted orientation, passively stabilizing during ascent.</p>
-              </div>
-            </div>
+              </p>
+            </article>
           </div>
         </div>
-      </article>
+      </div>
+    </section>
+
+    <!-- =============================================== feature (pinned) == -->
+    <section class="pin pin--feature feature" data-scrub="pin" aria-labelledby="feature-title">
+      <div class="pin__stage">
+        <div class="feature__media" aria-hidden="true">
+          <video data-lazy-video muted loop playsinline preload="none" poster="img/poster/coincopter-impact.jpg">
+            <source data-src="img/loop/coincopter-impact.mp4" type="video/mp4">
+            <img loading="lazy" decoding="async" src="img/gif/coincopter-impact.gif" alt="">
+          </video>
+        </div>
+        <div class="wrap feature__copy">
+          <p class="t-eyebrow">Passive stabilization</p>
+          <h2 class="t-h1 feature__title" id="feature-title">A mechanism that never runs out of battery.</h2>
+          <dl class="feature__stats">
+            <div>
+              <dt><span data-scrub-count="18">18</span><span class="u">×</span></dt>
+              <dd>better damping ratio from the optimized flybar</dd>
+            </div>
+            <div>
+              <dt><span data-scrub-count="341">341</span><span class="u">mW</span></dt>
+              <dd>total motor power at lift-off</dd>
+            </div>
+            <div>
+              <dt><span data-scrub-count="4.2" data-decimals="1">4.2</span><span class="u">×</span></dt>
+              <dd>maximum lift-to-weight ratio</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
     </section>
 
     <!-- =========================================== expanding modalities == -->
@@ -686,142 +334,77 @@
         <div class="section-head">
           <div class="section-head__text">
             <p class="t-eyebrow" data-reveal>In progress</p>
-            <h2 class="t-h1" data-reveal style="--reveal-delay:80ms">Expanding gram-scale<br>locomotion modalities.</h2>
+            <h2 class="t-h1" data-reveal style="--reveal-delay:80ms">More ways<br>to move.</h2>
           </div>
-          <p class="t-lede max-45" data-reveal style="--reveal-delay:160ms">
-            Rolling, hopping, gliding, flying — and navigating spaces a wheeled robot can’t enter at all.
-          </p>
         </div>
 
         <div class="grid grid--3" data-reveal-group="130">
-          <!-- FLEABOT -->
           <article class="card tint-ground" data-reveal>
-            <div class="media media--4x3">
-              <video data-lazy-video muted loop playsinline preload="none"
-                     poster="img/poster/fleabot-origami.jpg">
+            <div class="media media--4x3 media--crop">
+              <video data-lazy-video muted loop playsinline preload="none" poster="img/poster/fleabot-origami.jpg">
                 <source data-src="img/loop/fleabot-origami.mp4" type="video/mp4">
-                <img loading="lazy" decoding="async" src="img/gif/fleabot-origami.gif" alt="Millimeter-scale Kresling origami spring being compressed with tweezers under a microscope">
+                <img loading="lazy" decoding="async" src="img/gif/fleabot-origami.gif" alt="Millimetre-scale Kresling origami spring compressed with tweezers under a microscope">
               </video>
             </div>
             <div class="card__body">
-              <p class="t-eyebrow" style="margin-bottom:.7rem">FLEABOT</p>
-              <h3 class="t-h4" style="margin-bottom:.7rem">Field Locomotive Electromagnetic Actuated roBOT</h3>
+              <h3 class="t-h4" style="margin-bottom:.6rem">FLEABOT</h3>
               <p class="pillar__text">
-                An insect-inspired, multimodal battery-free platform: a Kresling origami spring
-                amplifies jumping power, while the capacitor charge curve is exploited to select
-                between a walking and a jumping regime.
+                One capacitor, two gaits. The robot reads its own charge curve to walk or jump,
+                and a Kresling origami spring amplifies the hop.
               </p>
-              <div class="chapter__links">
-                <span class="chip chip--review">In preparation</span>
-              </div>
+              <div class="chapter__links"><span class="chip chip--review">In preparation</span></div>
             </div>
           </article>
 
-          <!-- Alsomitra microglider -->
           <article class="card tint-air" data-reveal>
-            <div class="media media--4x3">
-              <video data-lazy-video muted loop playsinline preload="none"
-                     poster="img/poster/microglider-flight.jpg">
+            <div class="media media--4x3 media--crop">
+              <video data-lazy-video muted loop playsinline preload="none" poster="img/poster/microglider-flight.jpg">
                 <source data-src="img/loop/microglider-flight.mp4" type="video/mp4">
                 <img loading="lazy" decoding="async" src="img/gif/microglider-flight.gif" alt="Alsomitra-seed-inspired microglider released in a motion-capture arena">
               </video>
             </div>
             <div class="card__body">
-              <p class="t-eyebrow" style="margin-bottom:.7rem">Microglider</p>
-              <h3 class="t-h4" style="margin-bottom:.7rem">Alsomitra-inspired glider controlled by centre-of-mass shifting</h3>
+              <h3 class="t-h4" style="margin-bottom:.6rem">Microglider</h3>
               <p class="pillar__text">
-                <em>Alsomitra</em> seeds exhibit five distinct descent modes. A battery-free
-                microglider steers by shifting its centre of mass — trading actuators for
-                aerodynamics to achieve precise dispersal.
+                <em>Alsomitra</em> seeds glide in five distinct modes. A battery-free glider
+                steers by shifting its centre of mass instead of adding actuators.
               </p>
-              <div class="chapter__links">
-                <span class="chip chip--review">Science Robotics · in preparation</span>
-              </div>
+              <div class="chapter__links"><span class="chip chip--review">Science Robotics · in prep</span></div>
             </div>
           </article>
 
-          <!-- Everting toroidal robot -->
           <article class="card tint-vision" data-reveal>
-            <div class="media media--4x3">
-              <video data-lazy-video muted loop playsinline preload="none"
-                     poster="img/poster/etr-everting.jpg">
+            <div class="media media--4x3 media--crop">
+              <video data-lazy-video muted loop playsinline preload="none" poster="img/poster/etr-everting.jpg">
                 <source data-src="img/loop/etr-everting.mp4" type="video/mp4">
-                <img loading="lazy" decoding="async" src="img/gif/etr-everting.gif" alt="Everting toroidal robot prototype turning itself inside out on a benchtop">
+                <img loading="lazy" decoding="async" src="img/gif/etr-everting.gif" alt="Everting toroidal robot turning itself inside out on a benchtop">
               </video>
             </div>
             <div class="card__body">
-              <p class="t-eyebrow" style="margin-bottom:.7rem">ETR</p>
-              <h3 class="t-h4" style="margin-bottom:.7rem">Everting toroidal robots for GI tract navigation</h3>
+              <h3 class="t-h4" style="margin-bottom:.6rem">Everting toroidal robot</h3>
               <p class="pillar__text">
-                A self-propelled soft body that everts to navigate and climb in confined spaces,
-                explored here as a route toward controllable capsule endoscopy at the gram scale.
+                A soft body that turns itself inside out to climb through confined spaces —
+                aimed at controllable capsule endoscopy.
               </p>
-              <div class="chapter__links">
-                <span class="chip chip--review">Early prototype</span>
-              </div>
+              <div class="chapter__links"><span class="chip chip--review">Early prototype</span></div>
             </div>
           </article>
         </div>
 
-        <!-- FLEABOT's two regimes, side by side -->
-        <div class="grid grid--2 mt-5" style="align-items:center">
-          <div data-reveal="left">
-            <div class="media-pair">
-              <div class="media media--4x3">
-                <video data-lazy-video muted loop playsinline preload="none"
-                       poster="img/poster/fleabot-walking.jpg">
-                  <source data-src="img/loop/fleabot-walking.mp4" type="video/mp4">
-                  <img loading="lazy" decoding="async" src="img/gif/fleabot-walking.gif" alt="FLEABOT walking across a test surface while wired to a breadboard">
-                </video>
-                <p class="media__cap">Walking regime</p>
-              </div>
-              <div class="media media--4x3">
-                <video data-lazy-video muted loop playsinline preload="none"
-                       poster="img/poster/fleabot-jump.jpg">
-                  <source data-src="img/loop/fleabot-jump.mp4" type="video/mp4">
-                  <img loading="lazy" decoding="async" src="img/gif/fleabot-jump.gif" alt="FLEABOT jumping several centimetres beside a ruler, discharging a 330 µF capacitor at 4 V">
-                </video>
-                <p class="media__cap">Jumping regime · 330 µF at 4 V</p>
-              </div>
-            </div>
+        <div class="media-pair mt-5" data-reveal>
+          <div class="media media--4x3 media--crop">
+            <video data-lazy-video muted loop playsinline preload="none" poster="img/poster/fleabot-walking.jpg">
+              <source data-src="img/loop/fleabot-walking.mp4" type="video/mp4">
+              <img loading="lazy" decoding="async" src="img/gif/fleabot-walking.gif" alt="FLEABOT walking across a test surface while wired to a breadboard">
+            </video>
+            <p class="media__cap">FLEABOT · walking regime</p>
           </div>
-          <div data-reveal="right">
-            <p class="t-eyebrow">FLEABOT</p>
-            <h3 class="t-h3" style="margin-bottom:1rem">One robot, two gaits.</h3>
-            <p class="t-body">
-              FLEABOT takes its mobility from insects, and its multimodal locomotion from the same
-              capacitor that powers it. Rather than adding a second drivetrain, the robot reads its
-              own charge curve: the low end of the curve supports walking, and the high end supports
-              a jump.
-            </p>
-            <p class="t-body">
-              The jump itself is amplified mechanically. A millimetre-scale Kresling origami spring
-              stores the electromagnetic actuator’s work and releases it in one stroke, so a small
-              actuator produces a hop many times the robot’s body height — the actuation cost is
-              paid once, by the structure, rather than continuously by the motor.
-            </p>
-          </div>
-        </div>
-
-        <div class="grid grid--2 mt-5" style="align-items:start">
-          <div data-reveal>
-            <p class="t-eyebrow">Where this goes</p>
-            <h3 class="t-h3" style="margin-bottom:1rem">From individual robots to fleets.</h3>
-          </div>
-          <div data-reveal style="--reveal-delay:120ms">
-            <p class="t-body">
-              Many of the applications motivating near-gram robots become more compelling when the
-              robots operate as fleets rather than as isolated devices. A fleet of mobile sensing
-              nodes could disperse over a large area, reposition to sample spatial gradients, move
-              toward events of interest, and keep providing useful measurements even if some
-              individual robots fail.
-            </p>
-            <p class="t-body">
-              The hard part is that coordination must respect the same constraints that shape each
-              robot individually. Battery-free robots may not be awake or powered at the same time,
-              so swarm algorithms have to tolerate intermittent connectivity and heterogeneous
-              energy states rather than assume a continuously available link.
-            </p>
+          <div class="media media--4x3 media--crop">
+            <video data-lazy-video muted loop playsinline preload="none" poster="img/poster/fleabot-jump.jpg">
+              <source data-src="img/loop/fleabot-jump.mp4" type="video/mp4">
+              <img loading="lazy" decoding="async" src="img/gif/fleabot-jump.gif" alt="FLEABOT jumping several centimetres beside a ruler, discharging a 330 µF capacitor at 4 V">
+            </video>
+            <p class="media__cap">FLEABOT · jumping regime, 330 µF at 4 V</p>
           </div>
         </div>
       </div>
@@ -833,81 +416,24 @@
         <div class="section-head">
           <div class="section-head__text">
             <p class="t-eyebrow" data-reveal>Lessons</p>
-            <h2 class="t-h1" data-reveal style="--reveal-delay:80ms">Design principles.</h2>
+            <h2 class="t-h1" data-reveal style="--reveal-delay:80ms">What the<br>robots taught me.</h2>
           </div>
-          <p class="t-lede max-45" data-reveal style="--reveal-delay:160ms">
-            What three very different robots taught me about where to put the intelligence.
-          </p>
         </div>
 
-        <div class="grid grid--2" data-reveal-group="100">
-          <article class="pillar tint-air" data-reveal>
-            <p class="pillar__idx">01</p>
-            <h3 class="t-h4 pillar__title">Intelligence is a system property, not a processor property</h3>
-            <p class="pillar__text">
-              The relevant question is not how much computation a robot performs, but how
-              effectively the complete cyber-mechanical system transforms limited resources into
-              autonomous behavior.
-            </p>
-          </article>
-
-          <article class="pillar tint-ground" data-reveal>
-            <p class="pillar__idx">02</p>
-            <h3 class="t-h4 pillar__title">Treat the location of intelligence as a design variable</h3>
-            <p class="pillar__text">
-              Identify the functions the robot must perform — maintaining stability, retaining
-              state, estimating the environment, selecting an action — then decide where each can
-              be implemented most efficiently.
-            </p>
-          </article>
-
-          <article class="pillar tint-flight" data-reveal>
-            <p class="pillar__idx">03</p>
-            <h3 class="t-h4 pillar__title">Minimize active sensing and control when the task permits</h3>
-            <p class="pillar__text">
-              Replace continuous control with passive dynamics only when the physical system can
-              perform the function reliably enough. Sense what changes the robot’s action —
-              measurements that don’t are not worth their resource cost.
-            </p>
-          </article>
-
-          <article class="pillar tint-vision" data-reveal>
-            <p class="pillar__idx">04</p>
-            <h3 class="t-h4 pillar__title">Actuation is often the dominant resource constraint</h3>
-            <p class="pillar__text">
-              First reduce how often, how long, and across how many degrees of freedom actuation
-              is required — before increasing actuator capability or energy storage.
-            </p>
-          </article>
-
-          <article class="pillar tint-air" data-reveal>
-            <p class="pillar__idx">05</p>
-            <h3 class="t-h4 pillar__title">Use computation where it has the highest system value</h3>
-            <p class="pillar__text">
-              CMI does not assume mechanics are preferable to computation. The goal is not minimum
-              computation; it is computation used where adaptability and information processing
-              most improve behavior per unit of system cost.
-            </p>
-          </article>
-
-          <article class="pillar tint-ground" data-reveal>
-            <p class="pillar__idx">06</p>
-            <h3 class="t-h4 pillar__title">Energy availability shapes behavior</h3>
-            <p class="pillar__text">
-              Energy is part of the behavioral state of the robot. When resources are intermittent,
-              the controller should determine not only what action to take, but whether the system
-              can currently afford to sense, compute, communicate, or move.
-            </p>
-          </article>
-        </div>
-
-        <figure class="mt-5" data-reveal>
-          <div class="plate" data-scroll-scale="0.96 1.02">
-            <img src="img/web/research-collage.jpg" width="1800" height="1300" loading="lazy" decoding="async"
-                 alt="Three near-gram robots: an origami microflier held in a hand, MilliMobile beside a penny, and the Coin-Copter balanced on a fingertip, with an onboard camera frame detecting an insect.">
-          </div>
-          <figcaption>(A) Origami Microflier. (B) MilliMobile. (C) Coin-Copter, with MilliMobile Vision’s onboard detection view.</figcaption>
-        </figure>
+        <ol class="list-plain" data-reveal-group="80">
+          <li class="newsline" data-reveal><span class="newsline__date">01</span>
+            <span>Intelligence is a property of the whole system, not of its processor.</span></li>
+          <li class="newsline" data-reveal><span class="newsline__date">02</span>
+            <span>Decide where each function lives before deciding what hardware to add.</span></li>
+          <li class="newsline" data-reveal><span class="newsline__date">03</span>
+            <span>Swap continuous control for passive dynamics only where the physics is reliable enough.</span></li>
+          <li class="newsline" data-reveal><span class="newsline__date">04</span>
+            <span>Actuation usually dominates the budget — cut how often it runs before making it stronger.</span></li>
+          <li class="newsline" data-reveal><span class="newsline__date">05</span>
+            <span>Spend computation only where adaptability changes the robot’s behavior.</span></li>
+          <li class="newsline" data-reveal><span class="newsline__date">06</span>
+            <span>Energy is part of the robot’s state, not just its budget.</span></li>
+        </ol>
       </div>
     </section>
 
