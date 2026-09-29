@@ -1,0 +1,1525 @@
+<!doctype html>
+<!-- Kyle Johnson — kcwjohnson.com -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kyle Johnson — Cyber-Mechanical Intelligence</title>
+  <meta name="description" content="Kyle Johnson is a Ph.D. candidate at the University of Washington building near-gram robots that move autonomously — battery-free microfliers, microrobots, and coin-sized helicopters — and co-founder of the nonprofit AVELA.">
+  <meta name="author" content="Kyle Johnson">
+  <meta name="theme-color" content="#000000">
+  <link rel="canonical" href="https://kcwjohnson.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kyle Johnson — Cyber-Mechanical Intelligence">
+  <meta property="og:description" content="Near-gram robots that can move autonomously. Ph.D. candidate, Paul G. Allen School of Computer Science &amp; Engineering, University of Washington.">
+  <meta property="og:image" content="https://kcwjohnson.com/img/web/research-collage.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Inline SVG favicon: a rotor over a dot. Avoids a favicon.ico round-trip. -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23000'/%3E%3Cg stroke='%236fb1ff' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 12h20'/%3E%3Cpath d='M16 13v9'/%3E%3C/g%3E%3Ccircle cx='16' cy='24' r='3' fill='%23ffbe5c'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+
+  <!-- Runs before first paint: sets the theme so there is no flash of the wrong
+       one, and marks the document as scripted. Every entrance animation is
+       gated behind .js, so if this script never runs — or scroll-motion.js
+       fails to load — the page renders as plain, fully visible content rather
+       than a screen of invisible elements. -->
+  <script>
+    (function () {
+      var h = document.documentElement;
+      h.classList.add('js');
+      try {
+        var t = localStorage.getItem('kj-theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        if (t === 'light') h.classList.add('theme-light');
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
+
+  <!-- ====================================================== nav ========= -->
+  <header class="nav">
+    <a class="nav__brand" href="#top">
+      <span class="nav__dot" aria-hidden="true"></span>
+      Kyle Johnson
+    </a>
+
+    <nav class="nav__links" id="nav-links" aria-label="Primary">
+      <a href="#approach">Approach</a>
+      <a href="#research">Research</a>
+      <a href="#principles">Principles</a>
+      <a href="#publications">Publications</a>
+      <a href="#recognition">Talks &amp; Awards</a>
+      <a href="#avela">AVELA</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav__tools">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Switch to light theme">
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.2M12 19.4v2.2M4.2 12H2M22 12h-2.2M5.6 5.6 4 4M20 20l-1.6-1.6M18.4 5.6 20 4M4 20l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"/></svg>
+      </button>
+      <button class="icon-btn nav__menu-btn" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.5h17M3.5 12h17M3.5 16.5h17"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ==================================================== hero ======== -->
+    <section class="hero" id="top">
+      <div class="hero__bg" data-parallax="0.06">
+        <video muted loop playsinline autoplay preload="metadata"
+               poster="img/poster/millimobile-leaf.jpg" aria-hidden="true">
+          <source src="img/loop/millimobile-leaf.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero__scrim" aria-hidden="true"></div>
+
+      <div class="wrap hero__inner">
+        <p class="t-eyebrow">Ph.D. Candidate · University of Washington</p>
+
+        <h1 class="t-display hero__title" data-split>
+          Near-gram robots<br>that move<br><span class="n2">autonomously.</span>
+        </h1>
+
+        <p class="hero__sub" data-reveal style="--reveal-delay:420ms">
+          I design microrobots that roll, jump, glide, and fly on harvested energy —
+          and a framework, <em>Cyber-Mechanical Intelligence</em>, for deciding where
+          intelligence should live inside a robot that has almost no room for it.
+        </p>
+
+        <p class="hero__affil" data-reveal style="--reveal-delay:560ms">
+          <span>Paul G. Allen School of CSE</span>
+          <span>Iyer Lab &amp; Autonomous Insect Robotics Lab</span>
+          <span>Co-Founder, AVELA</span>
+        </p>
+
+        <div class="hero__actions" data-reveal style="--reveal-delay:680ms">
+          <a class="btn btn--solid" href="#research">
+            See the robots
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v15M6 13.5l6 6 6-6"/></svg>
+          </a>
+          <a class="btn" href="files/CV_2026-09-07.pdf" target="_blank" rel="noopener">Curriculum Vitae</a>
+          <a class="btn" href="https://scholar.google.com/citations?user=-ZdgFPsAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        </div>
+      </div>
+
+      <p class="hero__scroll" aria-hidden="true">Scroll</p>
+    </section>
+
+    <!-- =============================================== why smaller ====== -->
+    <section class="section wrap" id="approach">
+      <div class="grid grid--2" style="align-items:start">
+        <div>
+          <p class="t-eyebrow" data-reveal>Why make robots smaller?</p>
+          <h2 class="t-h2" data-reveal style="--reveal-delay:80ms">
+            Miniaturization to the near-gram size enables qualitatively different
+            ways of deploying robotic systems.
+          </h2>
+        </div>
+        <div>
+          <p class="t-body" data-reveal style="--reveal-delay:160ms">
+            Near-gram robots can enter narrow gaps, cavities, dense vegetation, machinery,
+            damaged structures, and other environments that are difficult or impossible for
+            conventional robots or people to access. That creates opportunities in industrial
+            inspection, environmental monitoring, disaster response, precision agriculture,
+            and distributed sensing.
+          </p>
+          <p class="t-body" data-reveal style="--reveal-delay:240ms">
+            Rather than relying on a few highly capable and expensive robots, sufficiently
+            inexpensive microrobots could be deployed as large fleets that gather measurements
+            at many locations simultaneously — where robustness emerges from the number and
+            distribution of devices rather than from adding redundant hardware to each one.
+          </p>
+          <p class="t-body" data-reveal style="--reveal-delay:320ms">
+            But the very scaling that enables this removes many of the resources traditionally
+            used to create autonomy. At the near-gram scale, each additional milligram, cubic
+            millimeter, and milliwatt represents a significant fraction of the total system budget.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid--4 mt-5 stats" data-reveal-group="110">
+        <div class="stat" data-reveal>
+          <div class="stat__num"><span data-count="414">414</span><span class="u">mg</span></div>
+          <p class="stat__label">Solar-powered origami microflier that changes shape in mid-air</p>
+        </div>
+        <div class="stat" data-reveal>
+          <div class="stat__num"><span data-count="50">50</span><span class="u">µW</span></div>
+          <p class="stat__label">Minimum harvested power for battery-free terrestrial locomotion</p>
+        </div>
+        <div class="stat" data-reveal>
+          <div class="stat__num"><span data-count="4.2" data-decimals="1">4.2</span><span class="u">×</span></div>
+          <p class="stat__label">Maximum lift-to-weight ratio of the 1&nbsp;g Coin-Copter</p>
+        </div>
+        <div class="stat" data-reveal>
+          <div class="stat__num"><span data-count="98">98</span><span class="u">m</span></div>
+          <p class="stat__label">Outdoor dispersal distance demonstrated from a drone release</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================= pinned scene: the gap === -->
+    <section class="scene scene--3" data-scene aria-label="Three allocations of intelligence">
+      <div class="scene__stage">
+        <div class="wrap" style="width:100%">
+          <div class="grid grid--2" style="align-items:center">
+            <div>
+              <p class="t-eyebrow">The near-gram autonomy gap</p>
+              <h2 class="t-h2" style="margin-bottom:1.25rem">
+                Full autonomy has to fit inside the same gram.
+              </h2>
+              <p class="t-body">
+                Mobility actuation, onboard sensing, onboard computing, a wireless link, and
+                onboard power. Many impressive microrobots achieve one of these by moving another
+                <em>outside</em> the robot — a tether, a motion-capture rig, an offboard controller,
+                a magnetic field generator.
+              </p>
+              <p class="t-body">
+                So the question stops being <em>how do we miniaturize each component</em>, and
+                becomes: <strong>where should each function required for autonomous behavior
+                actually live?</strong>
+              </p>
+
+              <ol class="list-plain mt-3" style="display:grid;gap:.55rem">
+                <li data-step class="t-meta">01 — Encode the behavior in the structure</li>
+                <li data-step class="t-meta">02 — Schedule the behavior around available energy</li>
+                <li data-step class="t-meta">03 — Let the physics do the stabilizing</li>
+              </ol>
+            </div>
+
+            <div class="frames" style="min-height:min(58svh,480px)">
+              <figure class="frame">
+                <div style="width:100%">
+                  <div class="media media--16x9">
+                    <video data-lazy-video muted loop playsinline preload="none"
+                           poster="img/poster/microflier-windtunnel.jpg">
+                      <source data-src="img/loop/microflier-windtunnel.mp4" type="video/mp4">
+                      <img loading="lazy" decoding="async" src="img/gif/microflier-windtunnel.gif" alt="Origami microflier falling in a wind tunnel in its stable and tumbling states">
+                    </video>
+                    <p class="media__cap">Origami Microflier — bistable morphology</p>
+                  </div>
+                </div>
+              </figure>
+
+              <figure class="frame">
+                <div style="width:100%">
+                  <div class="media media--16x9">
+                    <video data-lazy-video muted loop playsinline preload="none"
+                           poster="img/poster/millimobile-leaf.jpg">
+                      <source data-src="img/loop/millimobile-leaf.mp4" type="video/mp4">
+                      <img loading="lazy" decoding="async" src="img/gif/millimobile-leaf.gif" alt="MilliMobile driving across a leaf">
+                    </video>
+                    <p class="media__cap">MilliMobile — intermittent, energy-aware motion</p>
+                  </div>
+                </div>
+              </figure>
+
+              <figure class="frame">
+                <div style="width:100%">
+                  <div class="media media--16x9">
+                    <video data-lazy-video muted loop playsinline preload="none"
+                           poster="img/poster/flybar-damping.jpg">
+                      <source data-src="img/loop/flybar-damping.mp4" type="video/mp4">
+                      <img loading="lazy" decoding="async" src="img/gif/flybar-damping.gif" alt="Side-by-side high-speed comparison of a rotor with and without the flybar mechanism">
+                    </video>
+                    <p class="media__cap">Coin-Copter — passive flybar-rotor stabilization</p>
+                  </div>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================= CMI framework === -->
+    <section class="section section--alt">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-head__text">
+            <p class="t-eyebrow" data-reveal>The framework</p>
+            <h2 class="t-h1" data-reveal style="--reveal-delay:80ms">Cyber-Mechanical<br>Intelligence</h2>
+          </div>
+          <p class="t-lede max-45" data-reveal style="--reveal-delay:160ms">
+            A co-design paradigm that treats the location of intelligence within the robot
+            as a design variable.
+          </p>
+        </div>
+
+        <div class="grid grid--2" style="align-items:center">
+          <div data-reveal="left">
+            <div class="plate" data-scroll-scale="0.94 1.03">
+              <img src="img/web/cmi-overview.jpg" width="1800" height="1500" loading="lazy" decoding="async"
+                   alt="Diagram of Cyber-Mechanical Intelligence: on-device intelligence, resource-aware embedded systems, sensing and actuation, and dynamic mechanisms, all interacting with natural environments.">
+              <p class="plate__cap">CMI as a system-level design framework. Four interacting pillars provide complementary means of realizing autonomous functions; the resulting allocation depends on the task, environment, and available system resources.</p>
+            </div>
+          </div>
+
+          <div data-reveal="right">
+            <p class="t-body">
+              In this work, “intelligence” is not synonymous with artificial intelligence or
+              computation. Intelligence refers more broadly to a system’s capacity to produce
+              appropriate autonomous behavior in response to its task and environment. That
+              behavior may arise from computation — but it may also be produced through
+              mechanical dynamics, morphology, passive stability, stored mechanical state,
+              specialized electronics, or combinations of these domains.
+            </p>
+            <p class="t-body">
+              Functions are not assigned to mechanisms, electronics, or computation by
+              convention, but according to where they can be implemented with the lowest
+              system-level resource cost while preserving the behavior the task requires.
+            </p>
+            <p class="t-body">
+              The goal is not to replace computation with physical mechanisms wherever possible.
+              It is to jointly design the physical, electronic, and computational system so that
+              each domain performs the functions for which it is best suited.
+            </p>
+            <p class="t-meta mt-3">
+              — Cyber-Mechanical Intelligence: Creating Near-Gram Robots That Can Move Autonomously,
+              Ph.D. dissertation, University of Washington, 2026
+            </p>
+          </div>
+        </div>
+
+        <!-- four pillars -->
+        <div class="grid grid--4 mt-5" data-reveal-group="120">
+          <article class="pillar tint-air" data-reveal>
+            <p class="pillar__idx">PILLAR 01</p>
+            <h3 class="t-h4 pillar__title">Dynamic mechanisms</h3>
+            <p class="pillar__text">
+              Morphology, passive dynamics, compliance, material properties, and mechanical
+              state treated as resources that can perform functions conventionally assigned to
+              sensing, computation, control, or actuation.
+            </p>
+          </article>
+
+          <article class="pillar tint-ground" data-reveal>
+            <p class="pillar__idx">PILLAR 02</p>
+            <h3 class="t-h4 pillar__title">Efficient sensing &amp; actuation</h3>
+            <p class="pillar__text">
+              The minimum sensing and actuation necessary to accomplish the task reliably —
+              task-specific sensors, event-driven sampling, mechanically amplified actuation,
+              low-degree-of-freedom control.
+            </p>
+          </article>
+
+          <article class="pillar tint-flight" data-reveal>
+            <p class="pillar__idx">PILLAR 03</p>
+            <h3 class="t-h4 pillar__title">Resource-aware embedded systems</h3>
+            <p class="pillar__text">
+              Energy harvesting, power management, intermittent computing, duty cycling, and
+              energy-aware control — so energy availability becomes part of the operating
+              strategy rather than a constraint imposed on a fixed architecture.
+            </p>
+          </article>
+
+          <article class="pillar tint-vision" data-reveal>
+            <p class="pillar__idx">PILLAR 04</p>
+            <h3 class="t-h4 pillar__title">On-device intelligence</h3>
+            <p class="pillar__text">
+              State estimation, model-based control, planning, learned perception, and
+              resource-constrained neural inference — used where adaptability and information
+              processing provide the greatest value per unit of system cost.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================== research ==== -->
+    <section class="section" id="research" style="position:relative">
+      <div class="rail" aria-hidden="true"><div class="rail__fill"></div></div>
+
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-head__text">
+            <p class="t-eyebrow" data-reveal>The systems</p>
+            <h2 class="t-h1" data-reveal style="--reveal-delay:80ms">Four robots,<br>four allocations.</h2>
+          </div>
+          <p class="t-lede max-45" data-reveal style="--reveal-delay:160ms">
+            Each platform addresses a different resource bottleneck — and arrives at a
+            different answer to the same question.
+          </p>
+        </div>
+      </div>
+
+      <!-- ---------------------------------------- 01 Origami Microflier -->
+      <article class="chapter tint-air">
+        <div class="wrap">
+          <div class="chapter__grid">
+            <div class="chapter__text">
+              <p class="chapter__num" data-reveal>01</p>
+              <p class="chapter__kicker" data-reveal style="--reveal-delay:60ms">Intelligent morphology</p>
+              <h3 class="t-h2 chapter__title" data-reveal style="--reveal-delay:100ms">Origami Microflier</h3>
+              <p class="chapter__claim" data-reveal style="--reveal-delay:140ms">
+                Shape can change lateral displacement. So let the shape hold the decision.
+              </p>
+
+              <p class="chapter__body" data-reveal style="--reveal-delay:180ms">
+                Wind-dispersed sensor nodes can exploit environmental airflow instead of
+                carrying propulsion — but conventional passive microfliers have little control
+                over where they land. The Origami Microflier uses a reconfigurable mechanical
+                structure to change how the surrounding airflow acts on the device.
+              </p>
+              <p class="chapter__body" data-reveal style="--reveal-delay:220ms">
+                The 414&nbsp;mg system is built around a bistable leaf-out origami structure with
+                two mechanically stable configurations. Unfolded, it tumbles as it falls and is
+                more strongly influenced by lateral wind. After transitioning to its folded state,
+                the altered geometry produces a more symmetric aerodynamic response and a stable
+                downward descent. Because the origami is bistable, each configuration is
+                maintained mechanically — no continuous power or control is required to preserve it.
+              </p>
+              <p class="chapter__body" data-reveal style="--reveal-delay:260ms">
+                Harvested solar energy is accumulated and discharged in a single short actuation
+                event, triggered by programmed timing, an onboard pressure-based altitude estimate,
+                or a wireless command. A brief discharge of electrical energy therefore produces a
+                persistent change in behavior.
+              </p>
+
+              <div class="chapter__facts" data-reveal style="--reveal-delay:300ms">
+                <div>
+                  <div class="fact__num"><span data-count="414">414</span><span class="u">mg</span></div>
+                  <p class="fact__label">total system mass</p>
+                </div>
+                <div>
+                  <div class="fact__num"><span data-count="2">2</span></div>
+                  <p class="fact__label">stable mechanical configurations</p>
+                </div>
+                <div>
+                  <div class="fact__num"><span data-count="98">98</span><span class="u">m</span></div>
+                  <p class="fact__label">outdoor dispersal distance</p>
+                </div>
+              </div>
+
+              <div class="chapter__links" data-reveal style="--reveal-delay:340ms">
+                <a class="chip" href="https://doi.org/10.1126/scirobotics.adg4276" target="_blank" rel="noopener">Science Robotics</a>
+                <a class="chip" href="files/Solar-powered shape-changingorigamimicrofliers.pdf" target="_blank" rel="noopener">PDF</a>
+                <a class="chip" href="https://origamifliers.cs.washington.edu/" target="_blank" rel="noopener">Project site</a>
+                <a class="chip" href="https://youtu.be/-pE4-DXTsXk" target="_blank" rel="noopener">Video</a>
+              </div>
+            </div>
+
+            <div class="chapter__media">
+              <div class="media media--main" data-reveal="zoom">
+                <video data-lazy-video muted loop playsinline preload="none"
+                       poster="img/poster/microflier-windtunnel.jpg">
+                  <source data-src="img/loop/microflier-windtunnel.mp4" type="video/mp4">
+                  <img loading="lazy" decoding="async" src="img/gif/microflier-windtunnel.gif" alt="Wind-tunnel comparison of the microflier's stable state and tumbling state at 1.83 m/s">
+                </video>
+                <p class="media__cap">Wind tunnel · stable state vs. tumbling state · 1.83 m/s</p>
+              </div>
+
+              <div class="media-pair">
+                <div class="media media--4x3" data-reveal style="--reveal-delay:120ms">
+                  <video data-lazy-video muted loop playsinline preload="none"
+                         poster="img/poster/microflier-drone.jpg">
+                    <source data-src="img/loop/microflier-drone.mp4" type="video/mp4">
+                    <img loading="lazy" decoding="async" src="img/gif/microflier-drone.gif" alt="A drone releasing an origami microflier in mid-air during an outdoor dispersal test">
+                  </video>
+                  <p class="media__cap">Released from a drone</p>
+                </div>
+                <div class="media media--4x3" data-reveal style="--reveal-delay:200ms">
+                  <video data-lazy-video muted loop playsinline preload="none"
+                         poster="img/poster/microflier-transition.jpg">
+                    <source data-src="img/loop/microflier-transition.mp4" type="video/mp4">
+                    <img loading="lazy" decoding="async" src="img/gif/microflier-transition.gif" alt="Close-up of the origami microflier electronically actuating from its tumbling state into its stable state">
+                  </video>
+                  <p class="media__cap">Tumbling → stable · 0.10× speed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ------------------------------------------------- 02 MilliMobile -->
+      <article class="chapter chapter--flip tint-ground">
+        <div class="wrap">
+          <div class="chapter__grid">
+            <div class="chapter__text">
+              <p class="chapter__num" data-reveal>02</p>
+              <p class="chapter__kicker" data-reveal style="--reveal-delay:60ms">Intelligent energy allocation</p>
+              <h3 class="t-h2 chapter__title" data-reveal style="--reveal-delay:100ms">MilliMobile</h3>
+              <p class="chapter__claim" data-reveal style="--reveal-delay:140ms">
+                Stop asking the robot to move continuously. Ask it to move when it can afford to.
+              </p>
+
+              <p class="chapter__body" data-reveal style="--reveal-delay:180ms">
+                Ambient solar and RF sources can provide enough energy over time to support
+                near-gram robotic operation, but their instantaneous power is far below what is
+                needed to continuously drive even small motors. MilliMobile separates the rate at
+                which energy is harvested from the rate at which it is consumed: ambient energy is
+                accumulated in lightweight capacitors and periodically discharged to produce
+                discrete episodes of motion.
+              </p>
+              <p class="chapter__body" data-reveal style="--reveal-delay:220ms">
+                The result is a centimeter-square, battery-free robot that moves on as little as
+                50&nbsp;µW of harvested power, including in practical indoor lighting. It uses four
+                onboard photodiodes to estimate the direction of incident light and steer toward
+                brighter regions — simultaneously performing its task and seeking environments
+                that supply more energy.
+              </p>
+              <p class="chapter__body" data-reveal style="--reveal-delay:260ms">
+                Temperature and humidity sensing and long-range Bluetooth complete the platform:
+                these robots can communicate roughly fifty thousand times their own body length.
+              </p>
+
+              <div class="chapter__facts" data-reveal style="--reveal-delay:300ms">
+                <div>
+                  <div class="fact__num"><span data-count="50">50</span><span class="u">µW</span></div>
+                  <p class="fact__label">minimum operating power</p>
+                </div>
+                <div>
+                  <div class="fact__num"><span data-count="5.5" data-decimals="1">5.5</span><span class="u">mm/s</span></div>
+                  <p class="fact__label">speed with no battery onboard</p>
+                </div>
+                <div>
+                  <div class="fact__num"><span data-count="200">200</span><span class="u">m+</span></div>
+                  <p class="fact__label">wireless communication range</p>
+                </div>
+              </div>
+
+              <div class="chapter__links" data-reveal style="--reveal-delay:340ms">
+                <a class="chip" href="https://doi.org/10.1145/3570361.3613304" target="_blank" rel="noopener">ACM MobiCom</a>
+                <a class="chip" href="files/Millimobile_An_Autonomous_Battery-free_Wireless_Microrobot.pdf" target="_blank" rel="noopener">PDF</a>
+                <a class="chip" href="https://millimobile.cs.washington.edu/" target="_blank" rel="noopener">Project site</a>
+                <a class="chip" href="https://patents.google.com/patent/WO2025058992A1/en" target="_blank" rel="noopener">Patent</a>
+                <a class="chip" href="https://youtu.be/WADixOh6Xs8" target="_blank" rel="noopener">Video</a>
+              </div>
+            </div>
+
+            <div class="chapter__media">
+              <div class="media media--main" data-reveal="zoom">
+                <video data-lazy-video muted loop playsinline preload="none"
+                       poster="img/poster/millimobile-leaf.jpg">
+                  <source data-src="img/loop/millimobile-leaf.mp4" type="video/mp4">
+                  <img loading="lazy" decoding="async" src="img/gif/millimobile-leaf.gif" alt="MilliMobile driving across a leaf under sunlight">
+                </video>
+                <p class="media__cap">Battery-free locomotion on harvested sunlight</p>
+              </div>
+
+              <div class="plate" data-reveal style="--reveal-delay:140ms">
+                <img src="img/web/millimobile-concept.jpg" width="1800" height="500" loading="lazy" decoding="async"
+                     alt="MilliMobile next to a U.S. penny; exploded view showing solar cells, folded circuit, chassis, motors, ball bearings and wheels; and the folded PCB with its system circuit diagram.">
+                <p class="plate__cap">(A) MilliMobile beside a U.S. penny. (B) Exploded view: solar cells, folded circuit, chassis, motors, ball bearings, wheels. (C) Folded printed circuit board and system circuit diagram.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ------------------------------------------ 03 MilliMobile Vision -->
+      <article class="chapter tint-vision">
+        <div class="wrap">
+          <div class="chapter__grid">
+            <div class="chapter__text">
+              <p class="chapter__num" data-reveal>03</p>
+              <p class="chapter__kicker" data-reveal style="--reveal-delay:60ms">Intelligence as a scheduled resource</p>
+              <h3 class="t-h2 chapter__title" data-reveal style="--reveal-delay:100ms">MilliMobile Vision</h3>
+              <p class="chapter__claim" data-reveal style="--reveal-delay:140ms">
+                Run the cheap thing often. Run the expensive thing only when the answer changes what you do.
+              </p>
+
+              <p class="chapter__body" data-reveal style="--reveal-delay:180ms">
+                MilliMobile Vision pushes the same principle into perception. Camera acquisition,
+                image processing, learned inference, and communication all compete for the same
+                limited computing resources, so the system treats perception and computation as
+                schedulable activities — just as the original MilliMobile treats locomotion.
+              </p>
+              <p class="chapter__body" data-reveal style="--reveal-delay:220ms">
+                The architecture co-designs sensing, inference, and actuation around two operating
+                modes: a low-rate discovery mode that searches for objects of interest, and a
+                higher-rate tracking mode that prioritizes closed-loop following once a target is
+                detected. Frequent, inexpensive geometric localization drives steering; a more
+                expensive learned classifier is invoked only when semantic identity becomes
+                relevant to the task.
+              </p>
+              <p class="chapter__body" data-reveal style="--reveal-delay:260ms">
+                The camera is reused for both target tracking and coarse obstacle detection rather
+                than adding a dedicated range sensor — onboard perception that lets the robot make
+                increasingly sophisticated local decisions without depending on external computation.
+              </p>
+
+              <div class="chapter__links" data-reveal style="--reveal-delay:300ms">
+                <span class="chip chip--review">RA-L · in preparation</span>
+                <a class="chip" href="files/Battery-free On-Board Computer Vision for Insect-scale Microrobots FINAL.pdf" target="_blank" rel="noopener">ICRA late-breaking PDF</a>
+              </div>
+            </div>
+
+            <div class="chapter__media">
+              <div class="media media--main" data-reveal="zoom">
+                <video data-lazy-video muted loop playsinline preload="none"
+                       poster="img/poster/millimobile-vision.jpg">
+                  <source data-src="img/loop/millimobile-vision.mp4" type="video/mp4">
+                  <img loading="lazy" decoding="async" src="img/gif/millimobile-vision.gif" alt="MilliMobile Vision tracking a live insect: arena view alongside the robot's onboard camera view">
+                </video>
+                <p class="media__cap">Closed-loop tracking of a live insect · arena view + onboard camera</p>
+              </div>
+
+              <div class="plate" data-reveal style="--reveal-delay:140ms">
+                <img src="img/web/insect-tracking.jpg" width="1800" height="1440" loading="lazy" decoding="async"
+                     alt="Top view of the arena showing the robot's path in red and the beetle's path in blue, with three onboard camera frames: no target visible, target detected, and a closer view.">
+                <p class="plate__cap">Arena top view with the robot and insect trajectories, alongside the MilliMobile onboard view at three moments: no target visible, target detected, closer view.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ------------------------------------------------- 04 Coin-Copter -->
+      <article class="chapter chapter--flip tint-flight">
+        <div class="wrap">
+          <div class="chapter__grid">
+            <div class="chapter__text">
+              <p class="chapter__num" data-reveal>04</p>
+              <p class="chapter__kicker" data-reveal style="--reveal-delay:60ms">Intelligent passive flight dynamics</p>
+              <h3 class="t-h2 chapter__title" data-reveal style="--reveal-delay:100ms">Coin-Copter</h3>
+              <p class="chapter__claim" data-reveal style="--reveal-delay:140ms">
+                A flybar can do the job of an attitude controller — and it never runs out of battery.
+              </p>
+
+              <p class="chapter__body" data-reveal style="--reveal-delay:180ms">
+                Multi-rotor drones maintain attitude by continuously sensing orientation and
+                modulating multiple actuators to regulate roll, pitch, yaw, and position. At the
+                near-gram scale, each additional actuator, sensor, drive circuit, and feedback
+                loop consumes a significant fraction of the available mass, power, and computation.
+              </p>
+              <p class="chapter__body" data-reveal style="--reveal-delay:220ms">
+                Coin-Copter instead uses a single high-lift main rotor together with a passive
+                flybar-rotor mechanism — microfabricated from a flat composite laminate, using
+                flexure joints to reproduce the motions of the articulated flybars used in larger
+                helicopters. When the vehicle rotates in roll or pitch, the coupled dynamics of
+                the flybar and teetering rotor tilt the rotor disk relative to the body; the
+                resulting change in thrust direction produces a restoring torque. Stabilization
+                emerges from the rotor mechanics rather than from attitude estimation and active
+                correction.
+              </p>
+              <p class="chapter__body" data-reveal style="--reveal-delay:260ms">
+                A small tail rotor retains active control of the remaining yaw axis. A Coin-Copter
+                without the flybar was unable to maintain sustained upright flight, whereas the
+                flybar-equipped system held a stabilized attitude, recovered after a collision, and
+                continued ascending to the limit of the test arena.
+              </p>
+
+              <div class="chapter__facts" data-reveal style="--reveal-delay:300ms">
+                <div>
+                  <div class="fact__num"><span data-count="1.0" data-decimals="1">1.0</span><span class="u">g</span></div>
+                  <p class="fact__label">vehicle mass, 3.3 cm rotor</p>
+                </div>
+                <div>
+                  <div class="fact__num"><span data-count="341">341</span><span class="u">mW</span></div>
+                  <p class="fact__label">total motor power at lift-off</p>
+                </div>
+                <div>
+                  <div class="fact__num"><span data-count="4.2" data-decimals="1">4.2</span><span class="u">×</span></div>
+                  <p class="fact__label">maximum lift-to-weight ratio</p>
+                </div>
+                <div>
+                  <div class="fact__num">±<span data-count="11">11</span><span class="u">°</span></div>
+                  <p class="fact__label">RMS closed-loop yaw error over 30 s</p>
+                </div>
+              </div>
+
+              <div class="chapter__links" data-reveal style="--reveal-delay:340ms">
+                <span class="chip chip--review">Science Advances · in revision</span>
+                <a class="chip" href="https://doi.org/10.1109/IROS55552.2023.10342256" target="_blank" rel="noopener">IROS 2023</a>
+                <a class="chip" href="files/Toward Sub-gram Helicopters- Designing a Miniaturized Flybar for Passive Stability.pdf" target="_blank" rel="noopener">PDF</a>
+                <a class="chip" href="https://patents.google.com/patent/WO2024137785A1/en" target="_blank" rel="noopener">Patent</a>
+              </div>
+            </div>
+
+            <div class="chapter__media">
+              <div class="media media--main" data-reveal="zoom">
+                <video data-lazy-video muted loop playsinline preload="none"
+                       poster="img/poster/coincopter-ascent.jpg">
+                  <source data-src="img/loop/coincopter-ascent.mp4" type="video/mp4">
+                  <img loading="lazy" decoding="async" src="img/gif/coincopter-ascent.gif" alt="Side-by-side tether-constrained ascending flight with and without the flybar rotor">
+                </video>
+                <p class="media__cap">Tether-constrained ascent · no flybar vs. flybar-rotor · 0.125× speed</p>
+              </div>
+
+              <div class="media-pair">
+                <div class="media media--4x3" data-reveal style="--reveal-delay:120ms">
+                  <video data-lazy-video muted loop playsinline preload="none"
+                         poster="img/poster/coincopter-impact.jpg">
+                    <source data-src="img/loop/coincopter-impact.mp4" type="video/mp4">
+                    <img loading="lazy" decoding="async" src="img/gif/coincopter-impact.gif" alt="Coin-Copter stabilizing after an impact">
+                  </video>
+                  <p class="media__cap">Stabilization after impact</p>
+                </div>
+                <div class="media media--4x3" data-reveal style="--reveal-delay:200ms">
+                  <video data-lazy-video muted loop playsinline preload="none"
+                         poster="img/poster/flybar-damping.jpg">
+                    <source data-src="img/loop/flybar-damping.mp4" type="video/mp4">
+                    <img loading="lazy" decoding="async" src="img/gif/flybar-damping.gif" alt="High-speed 1D damping comparison of the rotor with and without a flybar">
+                  </video>
+                  <p class="media__cap">1D damping · 18× better damping ratio</p>
+                </div>
+              </div>
+
+              <div class="plate" data-reveal style="--reveal-delay:240ms">
+                <img src="img/web/coincopter-concept.jpg" width="1800" height="480" loading="lazy" decoding="async"
+                     alt="Coin-Copter above a U.S. 25-cent coin with motors on and off; labelled test platform showing the flybar mechanism, folded propeller, main motor, tail rotor and boom, counterweight, and carbon-fiber roll cage; and a composite image of passive stabilization during ascent.">
+                <p class="plate__cap">(A) Coin-Copter above a U.S. 25¢ coin, motors on and off. (B) Labelled platform: flybar mechanism, folded propeller, main motor, tail rotor and boom, counterweight, roll cage. (C) Released from a tilted orientation, passively stabilizing during ascent.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- =========================================== expanding modalities == -->
+    <section class="section section--alt" id="ongoing">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-head__text">
+            <p class="t-eyebrow" data-reveal>In progress</p>
+            <h2 class="t-h1" data-reveal style="--reveal-delay:80ms">Expanding gram-scale<br>locomotion modalities.</h2>
+          </div>
+          <p class="t-lede max-45" data-reveal style="--reveal-delay:160ms">
+            Rolling, hopping, gliding, flying — and navigating spaces a wheeled robot can’t enter at all.
+          </p>
+        </div>
+
+        <div class="grid grid--3" data-reveal-group="130">
+          <!-- FLEABOT -->
+          <article class="card tint-ground" data-reveal>
+            <div class="media media--4x3">
+              <video data-lazy-video muted loop playsinline preload="none"
+                     poster="img/poster/fleabot-origami.jpg">
+                <source data-src="img/loop/fleabot-origami.mp4" type="video/mp4">
+                <img loading="lazy" decoding="async" src="img/gif/fleabot-origami.gif" alt="Millimeter-scale Kresling origami spring being compressed with tweezers under a microscope">
+              </video>
+            </div>
+            <div class="card__body">
+              <p class="t-eyebrow" style="margin-bottom:.7rem">FLEABOT</p>
+              <h3 class="t-h4" style="margin-bottom:.7rem">Field Locomotive Electromagnetic Actuated roBOT</h3>
+              <p class="pillar__text">
+                An insect-inspired, multimodal battery-free platform: a Kresling origami spring
+                amplifies jumping power, while the capacitor charge curve is exploited to select
+                between a walking and a jumping regime.
+              </p>
+              <div class="chapter__links">
+                <span class="chip chip--review">In preparation</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Alsomitra microglider -->
+          <article class="card tint-air" data-reveal>
+            <div class="media media--4x3">
+              <video data-lazy-video muted loop playsinline preload="none"
+                     poster="img/poster/microglider-flight.jpg">
+                <source data-src="img/loop/microglider-flight.mp4" type="video/mp4">
+                <img loading="lazy" decoding="async" src="img/gif/microglider-flight.gif" alt="Alsomitra-seed-inspired microglider released in a motion-capture arena">
+              </video>
+            </div>
+            <div class="card__body">
+              <p class="t-eyebrow" style="margin-bottom:.7rem">Microglider</p>
+              <h3 class="t-h4" style="margin-bottom:.7rem">Alsomitra-inspired glider controlled by centre-of-mass shifting</h3>
+              <p class="pillar__text">
+                <em>Alsomitra</em> seeds exhibit five distinct descent modes. A battery-free
+                microglider steers by shifting its centre of mass — trading actuators for
+                aerodynamics to achieve precise dispersal.
+              </p>
+              <div class="chapter__links">
+                <span class="chip chip--review">Science Robotics · in preparation</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Everting toroidal robot -->
+          <article class="card tint-vision" data-reveal>
+            <div class="media media--4x3">
+              <video data-lazy-video muted loop playsinline preload="none"
+                     poster="img/poster/etr-everting.jpg">
+                <source data-src="img/loop/etr-everting.mp4" type="video/mp4">
+                <img loading="lazy" decoding="async" src="img/gif/etr-everting.gif" alt="Everting toroidal robot prototype turning itself inside out on a benchtop">
+              </video>
+            </div>
+            <div class="card__body">
+              <p class="t-eyebrow" style="margin-bottom:.7rem">ETR</p>
+              <h3 class="t-h4" style="margin-bottom:.7rem">Everting toroidal robots for GI tract navigation</h3>
+              <p class="pillar__text">
+                A self-propelled soft body that everts to navigate and climb in confined spaces,
+                explored here as a route toward controllable capsule endoscopy at the gram scale.
+              </p>
+              <div class="chapter__links">
+                <span class="chip chip--review">Early prototype</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- FLEABOT's two regimes, side by side -->
+        <div class="grid grid--2 mt-5" style="align-items:center">
+          <div data-reveal="left">
+            <div class="media-pair">
+              <div class="media media--4x3">
+                <video data-lazy-video muted loop playsinline preload="none"
+                       poster="img/poster/fleabot-walking.jpg">
+                  <source data-src="img/loop/fleabot-walking.mp4" type="video/mp4">
+                  <img loading="lazy" decoding="async" src="img/gif/fleabot-walking.gif" alt="FLEABOT walking across a test surface while wired to a breadboard">
+                </video>
+                <p class="media__cap">Walking regime</p>
+              </div>
+              <div class="media media--4x3">
+                <video data-lazy-video muted loop playsinline preload="none"
+                       poster="img/poster/fleabot-jump.jpg">
+                  <source data-src="img/loop/fleabot-jump.mp4" type="video/mp4">
+                  <img loading="lazy" decoding="async" src="img/gif/fleabot-jump.gif" alt="FLEABOT jumping several centimetres beside a ruler, discharging a 330 µF capacitor at 4 V">
+                </video>
+                <p class="media__cap">Jumping regime · 330 µF at 4 V</p>
+              </div>
+            </div>
+          </div>
+          <div data-reveal="right">
+            <p class="t-eyebrow">FLEABOT</p>
+            <h3 class="t-h3" style="margin-bottom:1rem">One robot, two gaits.</h3>
+            <p class="t-body">
+              FLEABOT takes its mobility from insects, and its multimodal locomotion from the same
+              capacitor that powers it. Rather than adding a second drivetrain, the robot reads its
+              own charge curve: the low end of the curve supports walking, and the high end supports
+              a jump.
+            </p>
+            <p class="t-body">
+              The jump itself is amplified mechanically. A millimetre-scale Kresling origami spring
+              stores the electromagnetic actuator’s work and releases it in one stroke, so a small
+              actuator produces a hop many times the robot’s body height — the actuation cost is
+              paid once, by the structure, rather than continuously by the motor.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid--2 mt-5" style="align-items:start">
+          <div data-reveal>
+            <p class="t-eyebrow">Where this goes</p>
+            <h3 class="t-h3" style="margin-bottom:1rem">From individual robots to fleets.</h3>
+          </div>
+          <div data-reveal style="--reveal-delay:120ms">
+            <p class="t-body">
+              Many of the applications motivating near-gram robots become more compelling when the
+              robots operate as fleets rather than as isolated devices. A fleet of mobile sensing
+              nodes could disperse over a large area, reposition to sample spatial gradients, move
+              toward events of interest, and keep providing useful measurements even if some
+              individual robots fail.
+            </p>
+            <p class="t-body">
+              The hard part is that coordination must respect the same constraints that shape each
+              robot individually. Battery-free robots may not be awake or powered at the same time,
+              so swarm algorithms have to tolerate intermittent connectivity and heterogeneous
+              energy states rather than assume a continuously available link.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================== principles ==== -->
+    <section class="section" id="principles">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-head__text">
+            <p class="t-eyebrow" data-reveal>Lessons</p>
+            <h2 class="t-h1" data-reveal style="--reveal-delay:80ms">Design principles.</h2>
+          </div>
+          <p class="t-lede max-45" data-reveal style="--reveal-delay:160ms">
+            What three very different robots taught me about where to put the intelligence.
+          </p>
+        </div>
+
+        <div class="grid grid--2" data-reveal-group="100">
+          <article class="pillar tint-air" data-reveal>
+            <p class="pillar__idx">01</p>
+            <h3 class="t-h4 pillar__title">Intelligence is a system property, not a processor property</h3>
+            <p class="pillar__text">
+              The relevant question is not how much computation a robot performs, but how
+              effectively the complete cyber-mechanical system transforms limited resources into
+              autonomous behavior.
+            </p>
+          </article>
+
+          <article class="pillar tint-ground" data-reveal>
+            <p class="pillar__idx">02</p>
+            <h3 class="t-h4 pillar__title">Treat the location of intelligence as a design variable</h3>
+            <p class="pillar__text">
+              Identify the functions the robot must perform — maintaining stability, retaining
+              state, estimating the environment, selecting an action — then decide where each can
+              be implemented most efficiently.
+            </p>
+          </article>
+
+          <article class="pillar tint-flight" data-reveal>
+            <p class="pillar__idx">03</p>
+            <h3 class="t-h4 pillar__title">Minimize active sensing and control when the task permits</h3>
+            <p class="pillar__text">
+              Replace continuous control with passive dynamics only when the physical system can
+              perform the function reliably enough. Sense what changes the robot’s action —
+              measurements that don’t are not worth their resource cost.
+            </p>
+          </article>
+
+          <article class="pillar tint-vision" data-reveal>
+            <p class="pillar__idx">04</p>
+            <h3 class="t-h4 pillar__title">Actuation is often the dominant resource constraint</h3>
+            <p class="pillar__text">
+              First reduce how often, how long, and across how many degrees of freedom actuation
+              is required — before increasing actuator capability or energy storage.
+            </p>
+          </article>
+
+          <article class="pillar tint-air" data-reveal>
+            <p class="pillar__idx">05</p>
+            <h3 class="t-h4 pillar__title">Use computation where it has the highest system value</h3>
+            <p class="pillar__text">
+              CMI does not assume mechanics are preferable to computation. The goal is not minimum
+              computation; it is computation used where adaptability and information processing
+              most improve behavior per unit of system cost.
+            </p>
+          </article>
+
+          <article class="pillar tint-ground" data-reveal>
+            <p class="pillar__idx">06</p>
+            <h3 class="t-h4 pillar__title">Energy availability shapes behavior</h3>
+            <p class="pillar__text">
+              Energy is part of the behavioral state of the robot. When resources are intermittent,
+              the controller should determine not only what action to take, but whether the system
+              can currently afford to sense, compute, communicate, or move.
+            </p>
+          </article>
+        </div>
+
+        <figure class="mt-5" data-reveal>
+          <div class="plate" data-scroll-scale="0.96 1.02">
+            <img src="img/web/research-collage.jpg" width="1800" height="1300" loading="lazy" decoding="async"
+                 alt="Three near-gram robots: an origami microflier held in a hand, MilliMobile beside a penny, and the Coin-Copter balanced on a fingertip, with an onboard camera frame detecting an insect.">
+          </div>
+          <figcaption>(A) Origami Microflier. (B) MilliMobile. (C) Coin-Copter, with MilliMobile Vision’s onboard detection view.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================================================= publications ==== -->
+    <section class="section section--alt" id="publications">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-head__text">
+            <p class="t-eyebrow" data-reveal>Selected publications</p>
+            <h2 class="t-h1" data-reveal style="--reveal-delay:80ms">Peer-reviewed<br>work.</h2>
+          </div>
+          <p class="actions" data-reveal style="--reveal-delay:160ms">
+            <a class="btn" href="https://scholar.google.com/citations?user=-ZdgFPsAAAAJ" target="_blank" rel="noopener">
+              Full list on Google Scholar
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+          </p>
+        </div>
+
+        <div data-reveal-group="60">
+          <!-- Coin-Copter -->
+          <article class="pub" data-reveal>
+            <div class="pub__media">
+              <img src="img/web/coincopter-finger.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="The Coin-Copter balanced on a fingertip">
+            </div>
+            <div>
+              <h3 class="pub__title">Coin-Copter: A Stable Near-gram Helicopter Design with Substantial Payload</h3>
+              <p class="pub__authors"><b>K. Johnson</b>, V. Arroyos, G. Donahoe, O. Njie, S. Yewondwossen, R. Arroyos, S. Fuller, V. Iyer</p>
+              <p class="pub__venue">Science Advances</p>
+              <p class="pub__links">
+                <span class="chip chip--review">In revision</span>
+                <a class="chip" href="https://patents.google.com/patent/WO2024137785A1/en" target="_blank" rel="noopener">Patent</a>
+              </p>
+            </div>
+            <p class="pub__year">2026</p>
+          </article>
+
+          <!-- MilliMobile Vision -->
+          <article class="pub" data-reveal>
+            <div class="pub__media">
+              <img src="img/web/mmv-abstract.jpg" width="1800" height="1125" loading="lazy" decoding="async" alt="Graphical abstract for battery-free on-board computer vision on insect-scale microrobots">
+            </div>
+            <div>
+              <h3 class="pub__title">MilliMobile Vision: Onboard Intelligence for Insect-Scale Mobile Robots</h3>
+              <p class="pub__authors">T. Elberier*, V. Arroyos*, <b>K. Johnson</b>*, E. Azuh, M. Ibrahim, K. Heimerl, V. Iyer, A. Mehta</p>
+              <p class="pub__venue">IEEE Robotics &amp; Automation Letters (RA-L)</p>
+              <p class="pub__links">
+                <span class="chip chip--review">In preparation</span>
+                <a class="chip" href="files/Battery-free On-Board Computer Vision for Insect-scale Microrobots FINAL.pdf" target="_blank" rel="noopener">ICRA LB PDF</a>
+              </p>
+            </div>
+            <p class="pub__year">2026</p>
+          </article>
+
+          <!-- WEEF 2026 -->
+          <article class="pub" data-reveal>
+            <div class="pub__media">
+              <img src="img/web/avela-projects.jpg" width="1800" height="1125" loading="lazy" decoding="async" alt="AVELA student projects and classroom scenes">
+            </div>
+            <div>
+              <h3 class="pub__title">From Toy To Tool: An Investigation on Student AI Use Cases and Effects of AI Scaffolding on Critical Engagement</h3>
+              <p class="pub__authors">A. Cora, N. Diop, A. Kimanje, L. Alemayehu, J. Solyst, A. Afenegus, V. Iyer, <b>K. Johnson</b></p>
+              <p class="pub__venue">World Engineering Education Forum — Global Engineering Deans Council (WEEF-GEDC), Cartagena de Indias, Colombia</p>
+              <p class="pub__links">
+                <a class="chip" href="files/From_Toy_To_Tool__An_Investigation_on_Student_AI_Use_Cases_and_Effects_of_AI_Scaffolding_on_Critical_Engagement.pdf" target="_blank" rel="noopener">PDF</a>
+              </p>
+            </div>
+            <p class="pub__year">2026</p>
+          </article>
+
+          <!-- WEEF 2025 -->
+          <article class="pub" data-reveal>
+            <div class="pub__media">
+              <img src="img/web/avela-collage.jpg" width="1800" height="1125" loading="lazy" decoding="async" alt="AVELA mentors and students in classrooms">
+            </div>
+            <div>
+              <h3 class="pub__title">Tool or Toy? Student Views on ChatGPT in Culturally Responsive Computing Education: A Preliminary Investigation</h3>
+              <p class="pub__authors">A. Cora, V. Arroyos, A. Kimanje, L. Alemayehu, J. Solyst, R. B. Shapiro, V. Iyer, <b>K. Johnson</b></p>
+              <p class="pub__venue">WEEF-GEDC, Daegu, Republic of Korea</p>
+              <p class="pub__links">
+                <a class="chip" href="https://doi.org/10.1109/WEEF-GEDC66748.2025.11256481" target="_blank" rel="noopener">DOI</a>
+                <a class="chip" href="files/Tool_or_Toy_Student_Views_on_ChatGPT_in_Culturally_Responsive_Computing_Education_A_Preliminary_Study.pdf" target="_blank" rel="noopener">PDF</a>
+              </p>
+            </div>
+            <p class="pub__year">2025</p>
+          </article>
+
+          <!-- ICRA LB 2025 -->
+          <article class="pub" data-reveal>
+            <div class="pub__media">
+              <video data-lazy-video muted loop playsinline preload="none" poster="img/poster/millimobile-vision.jpg">
+                <source data-src="img/loop/millimobile-vision.mp4" type="video/mp4">
+                <img loading="lazy" decoding="async" src="img/gif/millimobile-vision.gif" alt="MilliMobile Vision tracking a live insect">
+              </video>
+            </div>
+            <div>
+              <h3 class="pub__title">Battery-free Computer Vision on Insect-scale Microrobots</h3>
+              <p class="pub__authors">V. Arroyos, M. Ibrahim, E. Mensah, <b>K. Johnson</b>, S. Fuller, V. Iyer</p>
+              <p class="pub__venue">IEEE International Conference on Robotics and Automation (ICRA), Late Breaking — Atlanta, GA</p>
+              <p class="pub__links">
+                <a class="chip" href="files/Battery-free On-Board Computer Vision for Insect-scale Microrobots FINAL.pdf" target="_blank" rel="noopener">PDF</a>
+              </p>
+            </div>
+            <p class="pub__year">2025</p>
+          </article>
+
+          <!-- WEEF 2024 -->
+          <article class="pub" data-reveal>
+            <div class="pub__media">
+              <img src="img/web/avela-group.jpg" width="1800" height="1125" loading="lazy" decoding="async" alt="AVELA instructors and students, 2023 group photo">
+            </div>
+            <div>
+              <h3 class="pub__title">Scalable Community Mentorship: A Vision for Engineering Literacy &amp; Access</h3>
+              <p class="pub__authors"><b>K. Johnson</b>, V. Arroyos, L. Hussein, A. Cora, E. Sherif, C. Garcia, T. Barrett, S. Uthmaan, S. Shirazy, J. Cunningham, B. Shapiro, V. Iyer</p>
+              <p class="pub__venue">WEEF-GEDC, Sydney, Australia</p>
+              <p class="pub__links">
+                <a class="chip" href="https://doi.org/10.1109/WEEF-GEDC63419.2024.10854949" target="_blank" rel="noopener">DOI</a>
+                <a class="chip" href="https://arxiv.org/abs/2401.14581" target="_blank" rel="noopener">arXiv</a>
+                <a class="chip" href="files/Scalable_Community_Mentorship_A_Vision_for_Engineering_Literacy_amp_Access.pdf" target="_blank" rel="noopener">PDF</a>
+              </p>
+            </div>
+            <p class="pub__year">2024</p>
+          </article>
+
+          <!-- IROS 2023 -->
+          <article class="pub" data-reveal>
+            <div class="pub__media">
+              <img src="img/web/flybar-penny.jpg" width="1800" height="1125" loading="lazy" decoding="async" alt="The microfabricated flybar mechanism photographed beside a penny">
+            </div>
+            <div>
+              <h3 class="pub__title">Toward Sub-Gram Helicopters: Designing a Miniaturized Flybar for Passive Stability</h3>
+              <p class="pub__authors"><b>K. Johnson</b>, V. Arroyos, R. Villanueva, A. Schulz, S. Fuller, V. Iyer</p>
+              <p class="pub__venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), Detroit, MI</p>
+              <p class="pub__links">
+                <a class="chip" href="https://doi.org/10.1109/IROS55552.2023.10342256" target="_blank" rel="noopener">DOI</a>
+                <a class="chip" href="files/Toward Sub-gram Helicopters- Designing a Miniaturized Flybar for Passive Stability.pdf" target="_blank" rel="noopener">PDF</a>
+                <a class="chip" href="https://patents.google.com/patent/WO2024137785A1/en" target="_blank" rel="noopener">Patent</a>
+              </p>
+            </div>
+            <p class="pub__year">2023</p>
+          </article>
+
+          <!-- MobiCom 2023 -->
+          <article class="pub" data-reveal>
+            <div class="pub__media">
+              <img src="img/web/millimobile-penny.jpg" width="1800" height="1200" loading="lazy" decoding="async" alt="MilliMobile photographed beside a U.S. penny">
+            </div>
+            <div>
+              <h3 class="pub__title">MilliMobile: An Autonomous Battery-free Wireless Microrobot</h3>
+              <p class="pub__authors"><b>K. Johnson</b>, V. Arroyos, Z. Englhardt, D. Yin, S. Patel, V. Iyer</p>
+              <p class="pub__venue">ACM International Conference on Mobile Computing and Networking (MobiCom)</p>
+              <p class="pub__links">
+                <a class="chip" href="https://doi.org/10.1145/3570361.3613304" target="_blank" rel="noopener">DOI</a>
+                <a class="chip" href="files/Millimobile_An_Autonomous_Battery-free_Wireless_Microrobot.pdf" target="_blank" rel="noopener">PDF</a>
+                <a class="chip" href="https://millimobile.cs.washington.edu/" target="_blank" rel="noopener">Site</a>
+                <a class="chip" href="https://patents.google.com/patent/WO2025058992A1/en" target="_blank" rel="noopener">Patent</a>
+              </p>
+            </div>
+            <p class="pub__year">2023</p>
+          </article>
+
+          <!-- Science Robotics 2023 -->
+          <article class="pub" data-reveal>
+            <div class="pub__media">
+              <video data-lazy-video muted loop playsinline preload="none" poster="img/poster/microflier-windtunnel.jpg">
+                <source data-src="img/loop/microflier-windtunnel.mp4" type="video/mp4">
+                <img loading="lazy" decoding="async" src="img/gif/microflier-windtunnel.gif" alt="Origami microflier in a wind tunnel">
+              </video>
+            </div>
+            <div>
+              <h3 class="pub__title">Solar-powered Shape-changing Origami Microfliers</h3>
+              <p class="pub__authors"><b>K. Johnson</b>, V. Arroyos, T. Elberier, S. Fuller, V. Iyer, S. Gollakota</p>
+              <p class="pub__venue">Science Robotics <span class="muted">8, eadg4276</span></p>
+              <p class="pub__links">
+                <a class="chip" href="https://doi.org/10.1126/scirobotics.adg4276" target="_blank" rel="noopener">DOI</a>
+                <a class="chip" href="files/Solar-powered shape-changingorigamimicrofliers.pdf" target="_blank" rel="noopener">PDF</a>
+                <a class="chip" href="https://origamifliers.cs.washington.edu/" target="_blank" rel="noopener">Site</a>
+              </p>
+            </div>
+            <p class="pub__year">2023</p>
+          </article>
+
+          <!-- Soft Robotics 2022 -->
+          <article class="pub" data-reveal>
+            <div class="pub__media">
+              <img src="img/web/leafout-grasping.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Leaf-like origami performing a self-adaptive grasping motion">
+            </div>
+            <div>
+              <h3 class="pub__title">Leaf-like Origami with Bistability for Self-Adaptive Grasping Motions</h3>
+              <p class="pub__authors">H. Yasuda*, <b>K. Johnson</b>*, V. Arroyos, K. Yamaguchi, J. Raney, J. Yang</p>
+              <p class="pub__venue">Soft Robotics</p>
+              <p class="pub__links">
+                <a class="chip" href="https://doi.org/10.1089/soro.2021.0008" target="_blank" rel="noopener">DOI</a>
+                <a class="chip" href="files/Leaf-Like Origami with Bistability for Self-Adaptive Grasping Motions.pdf" target="_blank" rel="noopener">PDF</a>
+                <a class="chip" href="https://youtu.be/Z5col1zyREU" target="_blank" rel="noopener">Video</a>
+              </p>
+            </div>
+            <p class="pub__year">2022</p>
+          </article>
+
+          <!-- PACCAR patent -->
+          <article class="pub" data-reveal>
+            <div class="pub__media">
+              <img src="img/web/tractor-positioning.jpg" width="1400" height="875" loading="lazy" decoding="async" alt="Diagram of tractor–trailer clearance and positioning geometry">
+            </div>
+            <div>
+              <h3 class="pub__title">Tractor-based Trailer Clearance and Positioning System and Method</h3>
+              <p class="pub__authors">S. W. DeLizo, I. D. O’Connor, A. Avantaggio, <b>K. C. W. Johnson</b></p>
+              <p class="pub__venue">U.S. Patent 12,272,149 B2 — Assignee: PACCAR Inc.</p>
+              <p class="pub__links">
+                <a class="chip" href="https://pubchem.ncbi.nlm.nih.gov/patent/US-2023162509-A1" target="_blank" rel="noopener">Application</a>
+                <a class="chip" href="https://patentsgazette.uspto.gov/week14/OG/patentee/alphaD.html" target="_blank" rel="noopener">USPTO notice</a>
+              </p>
+            </div>
+            <p class="pub__year">2025</p>
+          </article>
+        </div>
+
+        <h3 class="t-h4 mt-5" data-reveal>Under review &amp; in preparation</h3>
+        <ul class="list-plain mt-2" data-reveal-group="60">
+          <li class="newsline" data-reveal>
+            <span class="newsline__date">LAK 2027</span>
+            <span><em>Orthogonal Trust: The Independence of Privacy and Accuracy in Instructor
+              Evaluations of AI Tools</em> — E. Layne, S. Nankabirwa, A. Kimanje, T. Barrett,
+              B. Smith, K. Yamada, A. Cora, V. Arroyos, V. Iyer, <b>K. Johnson</b>.
+              <a class="link" href="files/Orthogonal Trust - The Independence of Privacy and Accuracy in Instructor Evaluations of AI Tools.pdf" target="_blank" rel="noopener">PDF</a></span>
+          </li>
+          <li class="newsline" data-reveal>
+            <span class="newsline__date">IICE 2027</span>
+            <span><em>Getting Unstuck, Staying On Task: Designing Local Small Language Models to
+              Support Student Learning</em> — on CourseSLM, an on-device assistant for
+              low-connectivity classrooms.
+              <a class="link" href="files/Getting_Unstuck__Staying_On_Task__Designing_Local_Small_Language_Models_to_Support_Student_Learning.pdf" target="_blank" rel="noopener">PDF</a></span>
+          </li>
+          <li class="newsline" data-reveal>
+            <span class="newsline__date">Sci. Robotics</span>
+            <span><em>A battery-free microglider controlled via centre-of-mass shifting</em> —
+              C. Kessler, <b>K. Johnson</b>, V. Arroyos, E. Komendantskaya, V. Iyer, I. Maria Viola.
+              <span class="muted">In preparation.</span></span>
+          </li>
+          <li class="newsline" data-reveal>
+            <span class="newsline__date">In prep.</span>
+            <span><em>FLEABOT: a Field Locomotive Electromagnetic Actuated roBOT</em> —
+              <b>K. Johnson</b>, V. Arroyos, I. Barrow, J. Lyu, V. Iyer.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =================================================== recognition === -->
+    <section class="section" id="recognition">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-head__text">
+            <p class="t-eyebrow" data-reveal>Invited talks</p>
+            <h2 class="t-h1" data-reveal style="--reveal-delay:80ms">Where this<br>work has travelled.</h2>
+          </div>
+        </div>
+
+        <div class="marquee mt-0" data-reveal aria-hidden="true">
+          <div class="marquee__track">
+            <img src="img/logo/JHU_logo.png" alt="" loading="lazy">
+            <img src="img/logo/UC-Berkeley-Seal-Logo.png" alt="" loading="lazy">
+            <img src="img/logo/Apple-CEI.png" alt="" loading="lazy">
+            <img src="img/logo/UW-CSE-logo.png" alt="" loading="lazy">
+            <img src="img/logo/UC-Berkeley-BSAC-logo.png" alt="" loading="lazy">
+            <img src="img/logo/SNU-logo.jpeg" alt="" loading="lazy">
+            <img src="img/logo/JAXA-logo.png" alt="" loading="lazy">
+            <img src="img/logo/NASA_GSFC-logo.png" alt="" loading="lazy">
+            <img src="img/logo/Cornell-logo.png" alt="" loading="lazy">
+            <img src="img/logo/Black_in_engineering_graphic.jpg" alt="" loading="lazy">
+          </div>
+        </div>
+
+        <ul class="list-plain mt-4" data-reveal-group="45">
+          <li class="talk" data-reveal>
+            <img class="talk__logo" src="img/logo/JHU_logo.png" alt="" loading="lazy">
+            <div>
+              <p class="talk__where">Apr 2026 · Johns Hopkins, Laboratory for Computational Sensing &amp; Robotics</p>
+              <p class="talk__title">Battery-free Gram-scale Robots that Move Autonomously</p>
+            </div>
+            <a class="talk__go" href="https://lcsr.jhu.edu/event/kyle_johnson/" target="_blank" rel="noopener">Announcement ↗</a>
+          </li>
+
+          <li class="talk" data-reveal>
+            <img class="talk__logo" src="img/logo/Apple-CEI.png" alt="" loading="lazy">
+            <div>
+              <p class="talk__where">Apr 2026 · Apple CEI Leadership &amp; Learning Conference</p>
+              <p class="talk__title">Leveraging AI to Expand Access &amp; Unlock Potential</p>
+            </div>
+            <span class="talk__go muted">Invited</span>
+          </li>
+
+          <li class="talk" data-reveal>
+            <img class="talk__logo" src="img/logo/UC-Berkeley-Seal-Logo.png" alt="" loading="lazy">
+            <div>
+              <p class="talk__where">Feb 2026 · UC Berkeley EECS Colloquium</p>
+              <p class="talk__title">Battery-free Gram-scale Robots that Move Autonomously</p>
+            </div>
+            <a class="talk__go" href="https://events.berkeley.edu/eecs/event/316738-battery-free-gram-scale-robots-that-move" target="_blank" rel="noopener">Announcement ↗</a>
+          </li>
+
+          <li class="talk" data-reveal>
+            <img class="talk__logo" src="img/logo/Black_in_engineering_graphic.jpg" alt="" loading="lazy">
+            <div>
+              <p class="talk__where">Jan 2026 · Black in Engineering Monthly Meeting</p>
+              <p class="talk__title">Autonomous Gram-Scale Microrobots Designed to Roll, Jump, Glide, and Fly</p>
+            </div>
+            <span class="talk__go muted">Invited</span>
+          </li>
+
+          <li class="talk" data-reveal>
+            <img class="talk__logo" src="img/logo/UC-Berkeley-BSAC-logo.png" alt="" loading="lazy">
+            <div>
+              <p class="talk__where">Jan 2026 · UC Berkeley Sensor &amp; Actuator Center Technology Seminar</p>
+              <p class="talk__title">Battery-Free Gram-Scale Microrobots: Designing Autonomy for Rolling, Jumping, Gliding, and Flying</p>
+            </div>
+            <a class="talk__go" href="https://bsac.berkeley.edu/news/bsac-technology-seminar-battery-free-gram-scale-microrobots-designing-autonomy-rolling-jumping" target="_blank" rel="noopener">Announcement ↗</a>
+          </li>
+
+          <li class="talk" data-reveal>
+            <img class="talk__logo" src="img/logo/UW-CSE-logo.png" alt="" loading="lazy">
+            <div>
+              <p class="talk__where">Jan 2026 · UW CSE Robotics Colloquium</p>
+              <p class="talk__title">Battery-free Gram-scale Robots that Move Autonomously</p>
+            </div>
+            <a class="talk__go" href="https://robotics.cs.washington.edu/#colloquium" target="_blank" rel="noopener">Announcement ↗</a>
+          </li>
+
+          <li class="talk" data-reveal>
+            <img class="talk__logo" src="img/logo/SNU-logo.jpeg" alt="" loading="lazy">
+            <div>
+              <p class="talk__where">Sep 2025 · Seoul National University, STAR Lab</p>
+              <p class="talk__title">Battery-free Near-gram Microrobots: Designing Autonomy for Locomotion</p>
+            </div>
+            <a class="talk__go" href="files/SNU-MechE-Seminar2025.PNG" target="_blank" rel="noopener">Flyer ↗</a>
+          </li>
+
+          <li class="talk" data-reveal>
+            <img class="talk__logo" src="img/logo/JAXA-logo.png" alt="" loading="lazy">
+            <div>
+              <p class="talk__where">May 2024 · Japan Aerospace Exploration Agency (JAXA)</p>
+              <p class="talk__title">Battery-free Autonomous Microrobots</p>
+            </div>
+            <a class="talk__go" href="img/web/jaxa-coffee-chat.jpg" target="_blank" rel="noopener">Event ↗</a>
+          </li>
+
+          <li class="talk" data-reveal>
+            <img class="talk__logo" src="img/logo/NASA_GSFC-logo.png" alt="" loading="lazy">
+            <div>
+              <p class="talk__where">Jan 2024 · NASA Goddard Space Flight Center Engineering Colloquium</p>
+              <p class="talk__title">Battery-free Autonomous Microrobotics</p>
+            </div>
+            <a class="talk__go" href="https://ecolloq.gsfc.nasa.gov/Current/announce.johnson.html" target="_blank" rel="noopener">Announcement ↗</a>
+          </li>
+
+          <li class="talk" data-reveal>
+            <img class="talk__logo" src="img/logo/Cornell-logo.png" alt="" loading="lazy">
+            <div>
+              <p class="talk__where">Nov 2023 · Cornell University Robotics Seminar</p>
+              <p class="talk__title">Battery-free Autonomous Microrobotics</p>
+            </div>
+            <a class="talk__go" href="https://www.cs.cornell.edu/content/battery-free-autonomous-microrobotics" target="_blank" rel="noopener">Announcement ↗</a>
+          </li>
+        </ul>
+
+        <p class="t-meta mt-3" data-reveal>
+          Also: Harvard University Microrobotics Lab (2023), UC Berkeley Ubiquitous Swarm Lab (2023),
+          UW Molecular Information Systems Lab (2025), Materials Research Society Broadening
+          Participation in STEM Symposium (2024, 2026), and the IROS Workshop on Miniature
+          Multiterrain and Multimodal Locomotion (2026).
+        </p>
+
+        <!-- awards ------------------------------------------------------- -->
+        <div class="grid grid--2 mt-5" style="align-items:start;gap:clamp(2rem,5vw,4rem)">
+          <div data-reveal>
+            <p class="t-eyebrow">Awards &amp; fellowships</p>
+            <ul class="list-plain awards" style="columns:1">
+              <li>Georgia Tech NextProf Nexus <span>2026</span></li>
+              <li>ACM AI Leadership Summit <span>2026</span></li>
+              <li><a class="link" href="https://medium.com/sigchi/2026-acm-sigchi-awards-and-special-recognitions-d942983d9228" target="_blank" rel="noopener">ACM SIGCHI Special Recognition</a> <span>2026</span></li>
+              <li><a class="link" href="https://ascelibrary.org/jaeeez/outstanding_reviewers" target="_blank" rel="noopener">ASCE J. Aerospace Engineering Outstanding Reviewer</a> <span>2025</span></li>
+              <li>49th Annual GEM Conference — 1st place, oral presentation <span>2025</span></li>
+              <li>Black in Robotics Fellowship <span>2024</span></li>
+              <li>Clean Energy Institute Graduate Fellowship <span>2023</span></li>
+              <li>Graduate Fellowship for STEM Diversity <span>2023–26</span></li>
+              <li><a class="link" href="https://news.cs.washington.edu/2022/12/19/allen-school-ph-d-students-kyle-johnson-and-lisa-orii-receive-quad-fellowships/" target="_blank" rel="noopener">Quad Fellowship</a> <span>2023</span></li>
+              <li>UW Black Graduate Student of the Year <span>2023, 2025</span></li>
+              <li><a class="link" href="https://www.amazon.science/latest-news/amazon-and-university-of-washington-announce-inaugural-science-hub-fellows" target="_blank" rel="noopener">Amazon Science Hub Fellowship</a> <span>2022</span></li>
+              <li>Washington NASA Space Grant Consortium Fellowship <span>2021–24</span></li>
+              <li>SPEEA ACE Fellowship · Cadence Fellowship <span>2021–24</span></li>
+              <li><a class="link" href="https://news.cs.washington.edu/2021/04/30/allen-school-students-recognized-for-excellence-in-research-by-the-national-science-foundation-2/" target="_blank" rel="noopener">NSF Graduate Research Fellowship</a> <span>2021–26</span></li>
+              <li><a class="link" href="https://news.cs.washington.edu/2021/07/30/kyle-johnson-wins-2021-generation-google-scholarship/" target="_blank" rel="noopener">Generation Google Scholarship</a> <span>2021</span></li>
+              <li>National GEM Consortium Fellowship · Herbold Fellowship <span>2021</span></li>
+            </ul>
+          </div>
+
+          <div data-reveal style="--reveal-delay:120ms">
+            <p class="t-eyebrow">In the press</p>
+            <ul class="list-plain">
+              <li class="newsline"><span class="newsline__date">Feb 2026</span><span>ACM SIGCHI — <em>Special Recognition Award</em>. <a class="link" href="https://medium.com/sigchi/2026-acm-sigchi-awards-and-special-recognitions-d942983d9228" target="_blank" rel="noopener">Link</a></span></li>
+              <li class="newsline"><span class="newsline__date">Oct 2025</span><span>GeekWire — <em>Six grand challenges shaping the future of computer science</em>. <a class="link" href="https://www.geekwire.com/2025/inside-the-uw-allen-school-six-grand-challenges-shaping-the-future-of-computer-science/" target="_blank" rel="noopener">Link</a></span></li>
+              <li class="newsline"><span class="newsline__date">Mar 2024</span><span>UW Allen School — <em>“I Am CSE: Kyle Johnson”</em>. <a class="link" href="https://youtu.be/tyOcyn2LuIw" target="_blank" rel="noopener">Link</a></span></li>
+              <li class="newsline"><span class="newsline__date">Dec 2023</span><span>NSF Discovery Files — <em>“Self-Powered Mini Robot”</em>. <a class="link" href="https://youtu.be/iqoU8_Hsr8M" target="_blank" rel="noopener">Link</a></span></li>
+              <li class="newsline"><span class="newsline__date">May 2023</span><span>UW Magazine — <em>50 years later, writer sees a changed campus for Black UW students</em>. <a class="link" href="https://magazine.washington.edu/50-years-later-writer-sees-a-changed-campus-for-black-uw-students/" target="_blank" rel="noopener">Link</a></span></li>
+              <li class="newsline"><span class="newsline__date">May 2022</span><span>CNET — <em>These Tiny Sensors Ride the Wind Like Dandelion Seeds</em>. <a class="link" href="https://youtu.be/jE_irdfsoKk" target="_blank" rel="noopener">Link</a></span></li>
+              <li class="newsline"><span class="newsline__date">Oct 2022</span><span>NAAM Interactive Story Time — <em>“I Promise,” by LeBron James, voiced by Kyle Johnson</em>. <a class="link" href="https://www.youtube.com/watch?v=58CFNCpZMwg" target="_blank" rel="noopener">Link</a></span></li>
+            </ul>
+
+            <p class="t-eyebrow mt-4">Currently</p>
+            <p class="t-body">
+              I hold a UW CoMotion Postdoctoral Entrepreneurship Award (2026–2027) and founded
+              <strong>Nimbly</strong>, an autonomous robotics startup — developing a
+              commercialization plan, licensing UW IP developed during my Ph.D., and advancing
+              venture formation in partnership with the Allen School. Nimbly went through NSF
+              I-Corps at the National and Northwest Region level in 2026.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== AVELA ==== -->
+    <section class="section section--alt" id="avela">
+      <div class="wrap">
+        <div class="avela-hero" data-reveal>
+          <img src="img/web/avela-group.jpg" width="1800" height="1200" loading="lazy" decoding="async"
+               alt="AVELA instructors and students gathered for a 2023 group photo">
+          <div class="avela-hero__inner">
+            <p class="t-eyebrow" style="color:rgba(255,255,255,.75)">Community-centered work</p>
+            <h2 class="t-h2" style="color:#fff;margin-bottom:1rem">
+              <a href="http://avelaccess.org" target="_blank" rel="noopener" class="avela-mark">
+                <i>A</i><i>V</i><i>E</i><i>L</i><i>A</i>
+              </a>
+              — A Vision for Engineering Literacy &amp; Access
+            </h2>
+            <p class="t-body" style="max-width:56ch">
+              A federally recognized nonprofit expanding STEM opportunity for underrepresented
+              youth through a multi-tier near-peer mentorship model — free, culturally responsive
+              courses in AI literacy, data science, web development, robotics, and XR, pairing
+              K–14 learners with representative college, graduate, and professional mentors.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid--4 mt-4 stats" data-reveal-group="110">
+          <div class="stat" data-reveal>
+            <div class="stat__num"><span data-count="500" data-group>500</span><span class="u">+</span></div>
+            <p class="stat__label">college instructors mentored since 2019</p>
+          </div>
+          <div class="stat" data-reveal>
+            <div class="stat__num"><span data-count="9000" data-group>9,000</span><span class="u">+</span></div>
+            <p class="stat__label">secondary students taught</p>
+          </div>
+          <div class="stat" data-reveal>
+            <div class="stat__num"><span data-count="150000" data-group>150,000</span><span class="u">+</span></div>
+            <p class="stat__label">hours of hands-on STEM instruction</p>
+          </div>
+          <div class="stat" data-reveal>
+            <div class="stat__num">$<span data-count="3" data-decimals="1">3.0</span><span class="u">M+</span></div>
+            <p class="stat__label">in grants and donations raised as PI / Co-PI</p>
+          </div>
+        </div>
+
+        <div class="grid grid--2 mt-5" style="align-items:start">
+          <div data-reveal="left">
+            <p class="t-body">
+              AVELA’s 500+ members have partnered with roughly 100 faculty, schools, and community
+              partners across King County — Rainier Beach High School, Summit Atlas and Sierra,
+              Boys &amp; Girls Clubs, Africatown Community Land Trust’s William Grose Center,
+              African Community Housing Development — and train educators through the Urban League,
+              MESA, SPEEA ACE, and Washington NASA Space Grant.
+            </p>
+            <p class="t-body">
+              Alumni have gone on to Microsoft, NASA, Amazon, Boeing, and NVIDIA, and to Ph.D.
+              programs at Berkeley, UCLA, Maryland, Michigan, and Stanford. Beyond classes, AVELA
+              hosts college and scholarship nights, organizes the Hip-Hop Climate Conference &amp;
+              Concert, supports technical internships, and publishes research on equitable
+              education and AI at ACM CHI, RESPECT, EAAMO, and GEDC’s WEEF.
+            </p>
+            <p class="t-body">
+              Instructors have co-designed classroom norms for responsible AI use and prototyped
+              <strong>CourseSLM</strong>, a locally-run, user fine-tuned educational assistant, for
+              learning in low-connectivity settings — because merely giving students access to a
+              chatbot is not enough to bridge the digital divide.
+            </p>
+            <p class="t-body">
+              I also co-founded UW’s Black Graduate Student Association in 2020 and grew it past
+              250 members. My community work is guided by Maya Angelou’s words:
+              <em>“When you learn, teach. When you get, give.”</em>
+            </p>
+            <div class="chapter__links mt-2">
+              <a class="chip" href="http://avelaccess.org" target="_blank" rel="noopener">avelaccess.org</a>
+              <a class="chip" href="https://students.washington.edu/avelauw/index.html" target="_blank" rel="noopener">AVELA at UW</a>
+              <a class="chip" href="https://scholar.google.com/citations?user=LnUBxfsAAAAJ&amp;hl=en" target="_blank" rel="noopener">Research staff Scholar</a>
+            </div>
+          </div>
+
+          <div data-reveal="right">
+            <div class="mosaic">
+              <figure><img src="img/web/avela-collage.jpg" width="1800" height="1800" loading="lazy" decoding="async" alt="Collage of AVELA mentors and students"></figure>
+              <figure><img src="img/web/avela-projects.jpg" width="1800" height="1350" loading="lazy" decoding="async" alt="Student showcases and classroom scenes"></figure>
+              <figure><img src="img/web/hhccc-2.jpg" width="1600" height="1200" loading="lazy" decoding="async" alt="Keynote at the Hip-Hop Climate Conference"></figure>
+              <figure><img src="img/web/hhccc-1.jpg" width="1600" height="1200" loading="lazy" decoding="async" alt="Hip-Hop Climate Conference &amp; Concert"></figure>
+              <figure><img src="img/web/art-showcase.jpg" width="1600" height="1200" loading="lazy" decoding="async" alt="UW Black Art Showcase"></figure>
+            </div>
+
+            <p class="t-eyebrow mt-4">Selected coverage</p>
+            <ul class="list-plain">
+              <li class="newsline"><span class="newsline__date">Nov 2025</span><span>UW BioEng — <em>A Statewide Footprint and a Growing National Scope</em>. <a class="link" href="https://bioe.uw.edu/a-statewide-footprint-and-a-growing-national-scope/" target="_blank" rel="noopener">Link</a></span></li>
+              <li class="newsline"><span class="newsline__date">Oct 2024</span><span>Converge Media — <em>Empowering Youth Through Innovation</em>. <a class="link" href="https://www.whereweconverge.com/post/empowering-youth-through-innovation-kyle-johnson-on-avela-and-the-hip-hop-climate-conference" target="_blank" rel="noopener">Link</a></span></li>
+              <li class="newsline"><span class="newsline__date">Jul 2024</span><span>Seattle Medium — <em>AVELA Empowers URM Students in STEM</em>. <a class="link" href="https://seattlemedium.com/avela-non-profit-engineering-literacy/" target="_blank" rel="noopener">Link</a></span></li>
+              <li class="newsline"><span class="newsline__date">Feb 2023</span><span>CBS / CW11 Seattle — <em>High school students learn to code, build free websites for local businesses</em>. <a class="link" href="https://web.archive.org/web/20230316010935/https:/www.cbsnews.com/seattle/news/high-school-students-learn-to-code-build-free-websites-for-local-businesses/" target="_blank" rel="noopener">Link</a></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================== contact ==== -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="grid grid--2" style="align-items:center">
+          <div data-reveal="left">
+            <div class="media media--3x4" style="max-width:440px">
+              <img src="img/web/kyle-portrait.jpg" width="1200" height="1600" loading="lazy" decoding="async" alt="Portrait of Kyle Johnson">
+            </div>
+          </div>
+          <div data-reveal="right">
+            <p class="t-eyebrow">About</p>
+            <h2 class="t-h2" style="margin-bottom:1.25rem">Kyle Johnson</h2>
+            <p class="t-body">
+              I’m a Ph.D. candidate in Computer Science &amp; Engineering at the University of
+              Washington, advised by
+              <a href="https://homes.cs.washington.edu/~vsiyer/" target="_blank" rel="noopener">Vikram Iyer</a>
+              and <a href="https://faculty.washington.edu/minster/" target="_blank" rel="noopener">Sawyer Fuller</a>,
+              and co-founder of the nonprofit AVELA.
+            </p>
+            <p class="t-body">
+              My research explores how combinations of low-power actuation and control mechanisms
+              can create autonomous microrobots optimized for resource-constrained applications.
+              I envision these microrobots operating intelligently in large swarms, alongside
+              larger systems, to transform disaster response, industrial inventory and inspection,
+              wireless networking, precision agriculture, and environmental monitoring.
+            </p>
+            <p class="t-body">
+              Before UW’s Iyer Lab I worked in Shyam Gollakota’s Networks &amp; Mobile Systems Lab
+              and Jinkyu Yang’s Laboratory for Engineered Materials &amp; Structures, and spent time
+              at NASA Goddard Space Flight Center and Whirlpool Corporation. I’ve mentored
+              24 Ph.D. students, 15 master’s students, and 20+ undergraduate researchers, and
+              served as Lead TA for UW’s embedded systems and ubiquitous computing courses.
+            </p>
+
+            <div class="chapter__links mt-3">
+              <a class="btn btn--solid" data-mail="kylej23|uw.edu" href="#">Email me</a>
+              <a class="btn" href="files/CV_2026-09-07.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+              <a class="btn" href="https://www.linkedin.com/in/kyle-johnson-0015/" target="_blank" rel="noopener">LinkedIn</a>
+              <a class="btn" href="https://www.youtube.com/channel/UCZycr-pj_xrsABTr-j7IC-g" target="_blank" rel="noopener">YouTube</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================== footer ======= -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div>
+          <h3>Kyle Johnson</h3>
+          <p class="t-body" style="font-size:.95rem">
+            Paul G. Allen Center for Computer Science &amp; Engineering<br>
+            185 E Stevens Way NE · Seattle, WA 98195-2350
+          </p>
+          <p class="mt-2" style="font-size:.95rem">
+            University: <a data-mail="kylej23|uw.edu" data-mail-text href="#">kylej23@uw.edu</a><br>
+            AVELA: <a data-mail="chair|AVELAccess.org" data-mail-text href="#">chair@AVELAccess.org</a><br>
+            Partnerships: <a data-mail="coordinator_uw|AVELAccess.org" data-mail-text href="#">coordinator_uw@AVELAccess.org</a>
+          </p>
+        </div>
+
+        <div>
+          <h3>Elsewhere</h3>
+          <ul class="list-plain">
+            <li><a href="https://scholar.google.com/citations?user=-ZdgFPsAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+            <li><a href="https://www.linkedin.com/in/kyle-johnson-0015/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.youtube.com/channel/UCZycr-pj_xrsABTr-j7IC-g" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a href="https://orcid.org/0000-0002-0443-9892" target="_blank" rel="noopener">ORCID</a></li>
+            <li><a href="files/CV_2026-09-07.pdf" target="_blank" rel="noopener">Curriculum Vitae</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Projects</h3>
+          <ul class="list-plain">
+            <li><a href="https://origamifliers.cs.washington.edu/" target="_blank" rel="noopener">Origami Microfliers</a></li>
+            <li><a href="https://millimobile.cs.washington.edu/" target="_blank" rel="noopener">MilliMobile</a></li>
+            <li><a href="http://avelaccess.org" target="_blank" rel="noopener">AVELA</a></li>
+            <li><a href="https://students.washington.edu/avelauw/index.html" target="_blank" rel="noopener">AVELA at UW</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© <span id="year">2026</span> Kyle Johnson. Last updated <span id="updated"></span>.</p>
+        <p>Robot footage from my own papers, talks, and lab experiments.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/site.js" defer></script>
+  <script src="js/scroll-motion.js" defer></script>
+</body>
+</html>
